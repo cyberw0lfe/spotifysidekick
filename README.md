@@ -1,4 +1,4 @@
-look into best way to secure bearer token on backend
+[![Build Status](https://travis-ci.com/adamtwolfe/spotify.svg?token=2txtSqzFNyGWxtK6gzgr&branch=master)](https://travis-ci.com/adamtwolfe/spotify)
 
 # TODO
 ## Client
