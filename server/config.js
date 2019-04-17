@@ -1,5 +1,3 @@
-// require('dotenv').config()
-
 module.exports = {
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
@@ -14,5 +12,5 @@ module.exports = {
         issuer: process.env.JWT_ISS,
     }
 }
-// TODO make this stuff secret / env specific
+
 // https://developer.spotify.com/documentation/general/guides/scopes
