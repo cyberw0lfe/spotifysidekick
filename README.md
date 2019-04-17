@@ -30,8 +30,11 @@
 - add more on discover
 
 # High Level Arch Overview
-Source Code - [Bitbucket](https://bitbucket.org/adamtwolfe/spotify/src/master/)
+Source Code
+- [Bitbucket](https://bitbucket.org/adamtwolfe/spotify/src/master/)
+- [Github](https://github.com/adamtwolfe/spotify)
 Client - ejected `create-react-app`
 Server - `express` server that serves up client files
 Mock Server - mocked out responses from express API using `connect-api-mocker`
 Deploy - [Heroku](https://frozen-tor-75481.herokuapp.com/)
+Build - [Travis CI](https://travis-ci.com/adamtwolfe/spotify)
