@@ -9,6 +9,7 @@
     "start": "node -r dotenv/config server/server.js",
     "mock-server": "nodemon -r dotenv/config server/server.js mock",
     "server": "nodemon -r dotenv/config server/server.js",
+    "test": "",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {

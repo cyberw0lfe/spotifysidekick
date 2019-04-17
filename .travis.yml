@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - '8'
+
+# don't build
+branches:
+  except:
+    - develop
+
+# build
+branches:
+  only:
+    - master
