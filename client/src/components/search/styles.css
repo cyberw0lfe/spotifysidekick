@@ -1,0 +1,4 @@
+.search-types {
+  display: flex;
+  flex-direction: column;
+}

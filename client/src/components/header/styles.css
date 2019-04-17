@@ -1,0 +1,29 @@
+.header {
+  overflow: hidden;
+  display: flex;
+  background-color: mediumseagreen;
+  justify-content: center;
+}
+
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  align-items: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 15px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a:active {
+  background-color: mediumspringgreen;
+  color: white;
+}

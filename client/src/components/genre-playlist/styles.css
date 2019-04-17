@@ -1,0 +1,54 @@
+.genre-playlist-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: center;
+}
+
+.genre-select-container {
+  display: inline-flex;
+  flex-direction: row;
+  max-height: 80vh;
+  border: solid;
+  border-width: 1px;
+}
+
+.genre-select-title {
+  font-size: 18px;
+  text-align: center;
+}
+
+.genre-list {
+  max-height: 70vh;
+  overflow: scroll;
+  width: 150px;
+}
+
+.selected-genre-list {
+  width: 150px;
+}
+
+.genre-list-item {
+  padding: 2px 0px 2px 4px;
+  border-bottom: solid;
+  border-width: 1px;
+}
+
+.genre-list-item:hover{
+  background-color: mediumseagreen;
+  color: white;
+}
+
+.genre-playlist-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 0px 0px 30px;
+}
+
+.save-playlist input {
+  margin: 0px 10px 0px 0px;
+}
+
+hr {
+  margin: 0px;
+}
