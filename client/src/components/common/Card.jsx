@@ -30,13 +30,23 @@ const hr = {
   margin: '0px',
 }
 
+const renderHeader = (title) => {
+  if(title) {
+    return (
+      <div>
+        <div style={headerContainer}>
+          <div style={header}>{title}</div>
+        </div>
+        <hr style={hr}/>
+      </div>
+    )
+  }
+}
+
 export default (props) => {
   return (
     <div style={cardContainer}>
-      <div style={headerContainer}>
-        <div style={header}>{props.title}</div>
-      </div>
-      <hr style={hr}/>
+      {renderHeader(props.title)}
       <div style={body}>{props.content}</div>
     </div>
   )
