@@ -5,6 +5,7 @@ const cardContainer = {
   display: 'inline-block',
   border: '1px solid black',
   maxWidth: '250px',
+  maxHeight: '75vh',
   boxShadow: '3px 3px grey'
 }
 
