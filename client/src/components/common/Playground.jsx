@@ -6,6 +6,7 @@ export default () => {
   return (
     <div>
       <Button text='playground' />
+      {/* <Card title='Top Genres' content={<Discover />}/>*/}
       <Card />
     </div>
   )
