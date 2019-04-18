@@ -7,7 +7,6 @@ const cardContainer = {
   maxWidth: '400px',
   maxHeight: '90vh',
   boxShadow: '3px 3px grey',
-  margin: '10px 24px',
 }
 
 const headerContainer = {

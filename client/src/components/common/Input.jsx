@@ -4,7 +4,6 @@ const style = {
   // type: text, password, number, etc.
   maxWidth: '400px',
   padding: '10px 5px',
-  margin: '20px 5px',
   boxSizing: 'border-box',
   border: 'none',
   borderBottom: '2px solid #9e9e9e',

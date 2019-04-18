@@ -9,7 +9,6 @@ const style = {
   maxWidth: '400px',
   padding: '10px 24px',
   borderRadius: '8px',
-  margin: '15px',
 }
 
 export default (props) => (
