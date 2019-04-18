@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../common/Button'
 import { getLoginUrl } from '../../utils/fetch';
  
 const clickHandler = async () => {
@@ -9,6 +10,6 @@ const clickHandler = async () => {
 export default () => (
   <div>
     <br/>
-    <button onClick={clickHandler}>Login</button>
+    <Button onClick={clickHandler} text='Login'/>
   </div>
 )

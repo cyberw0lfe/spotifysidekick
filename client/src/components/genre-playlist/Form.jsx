@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from '../common/Button'
+import Input from '../common/Input'
 import './styles.css'
 import { generateGenrePlaylist } from '../../utils/fetch'
 
@@ -34,12 +36,12 @@ const generatePlaylist = async (setLoading, selectedGenres, setPlaylist) => {
 
 export default (props) => (
   <form className='genre-playlist-form' onSubmit={() => {generatePlaylist(props.setLoading, props.selectedGenres, props.setPlaylist)}}>
-    <input type='number' id='limit' name='limit' placeholder='track count'></input>
-    <input type='text' id='playlist-name' name='playlist-name' placeholder='playlist name'></input>
+    <Input type='number' id='limit' placeholder='track count' />
+    <Input type='text' id='playlist-name' placeholder='playlist name' />
     <div className='save-playlist'>
-      <input type='checkbox' id='save-toggle' name='save-toggle'></input>
+      <Input type='checkbox' id='save-toggle' />
       Save Playlist?
     </div>
-    <button type='submit'>Submit</button>
+    <Button text='Submit' />
   </form>
 )

@@ -1,13 +1,20 @@
 import React from 'react'
+import casual from 'casual-browserify'
 import Button from './Button'
 import Card from './Card'
+import Input from './Input'
+
+const style = {
+  display: 'flex',
+  flexDirection: 'column'
+}
 
 export default () => {
   return (
-    <div>
+    <div style={style}>
       <Button text='playground' />
-      {/* <Card title='Top Genres' content={<Discover />}/>*/}
-      <Card />
+      <Input />
+      <Card title={casual.short_description} content={casual.description}/>
     </div>
   )
 }

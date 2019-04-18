@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from '../common/Button'
+import Card from '../common/Card'
 import './styles.css'
 
 export default (props) => {
@@ -8,9 +10,9 @@ export default (props) => {
 
     return (
       <div>
-        <button onClick={props.onClick}>Reset</button>
+        <Button onClick={props.onClick} text='Reset' />
         <br/>
-        {playlist}
+        <Card content={playlist} />
       </div>
     )
 }

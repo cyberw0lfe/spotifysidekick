@@ -1,13 +1,13 @@
 import React from 'react'
-const casual = require('casual-browserify')
 
 const cardContainer = {
   display: 'inline-block',
   border: '1px solid black',
   minWidth: '200px',
   maxWidth: '400px',
-  maxHeight: '80vh',
-  boxShadow: '3px 3px grey'
+  maxHeight: '90vh',
+  boxShadow: '3px 3px grey',
+  margin: '10px 24px',
 }
 
 const headerContainer = {
@@ -22,7 +22,7 @@ const header = {
 }
 
 const body = {
-  maxHeight: '60vh',
+  maxHeight: '80vh',
   overflow: 'scroll',
   padding: '2px 0px'
 }
@@ -35,10 +35,10 @@ export default (props) => {
   return (
     <div style={cardContainer}>
       <div style={headerContainer}>
-        <div style={header}>{props.title || casual.short_description}</div>
+        <div style={header}>{props.title}</div>
       </div>
       <hr style={hr}/>
-      <div style={body}>{props.content || casual.description}</div>
+      <div style={body}>{props.content}</div>
     </div>
   )
 }

@@ -1,4 +1,6 @@
 import React from 'react'
+import Input from '../common/Input'
+import Button from '../common/Button'
 import { executeSearch } from '../../utils/fetch';
 import './styles.css'
 
@@ -23,6 +25,10 @@ const search = async (event, setShowResult, setSearchResult) => {
 
 export default (props) => (
   <form onSubmit={(event) => search(event, props.setState.setShowResult, props.setState.setSearchResult)}>
+    <Input type='number' id='limit' placeholder='result limit' />
+    <Input type='text' id='query' placeholder='search' />
+    <Button text='Submit' />
+    
     <div className='search-types'>
       <div>
         <input type='checkbox' id='track-checkbox'></input> Track
@@ -37,9 +43,5 @@ export default (props) => (
         <input type='checkbox' id='playlist-checkbox'></input> Playlist
       </div>
     </div>
-    <input type='number' id='limit' name='limit' placeholder='search limit'></input>
-    <br/>
-    <input type='text' id='query' name='query' placeholder='search'></input>
-    <button id='submit' type='submit'>Submit</button>
   </form>
 )

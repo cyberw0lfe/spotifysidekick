@@ -6,12 +6,12 @@ const style = {
   backgroundColor: 'green',
   color: 'white',
   fontSize: '12px',
+  maxWidth: '400px',
   padding: '10px 24px',
   borderRadius: '8px',
-  // border: '2px solid white',
   margin: '15px',
 }
 
 export default (props) => (
-  <button style={style}>{props.text}</button>
+  <button style={style} onClick={props.onClick}>{props.text}</button>
 )
