@@ -10,6 +10,7 @@ const isLoggedIn = () => {
 
 const logoutUser = async () => {
   await logout()
+  cookie.set('authorized', false)
   cookie.remove('authorized')
 }
 

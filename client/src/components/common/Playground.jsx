@@ -1,8 +1,12 @@
 import React from 'react'
 import Button from './Button'
+import Card from './Card'
 
 export default () => {
   return (
-    <Button text='playground' />
+    <div>
+      <Button text='playground' />
+      <Card />
+    </div>
   )
 }
