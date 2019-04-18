@@ -4,8 +4,9 @@ const casual = require('casual-browserify')
 const cardContainer = {
   display: 'inline-block',
   border: '1px solid black',
-  maxWidth: '250px',
-  maxHeight: '75vh',
+  minWidth: '200px',
+  maxWidth: '400px',
+  maxHeight: '80vh',
   boxShadow: '3px 3px grey'
 }
 
@@ -15,18 +16,19 @@ const headerContainer = {
 
 const header = {
   display: 'inline-block',
-  padding: '2px 0px 5px',
+  padding: '2px 10px 5px',
   fontSize: '20px',
   wordWrap: 'break-word'
 }
 
 const body = {
-  padding: '2px 5px 5px',
-  wordWrap: 'break-word',
+  maxHeight: '60vh',
+  overflow: 'scroll',
+  padding: '2px 0px'
 }
 
 const hr = {
-  margin: '0px'
+  margin: '0px',
 }
 
 export default (props) => {
