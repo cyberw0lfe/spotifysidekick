@@ -5,7 +5,7 @@ const React = require('react')
 const style = {
   backgroundColor: 'green',
   color: 'white',
-  fontSize: '12px',
+  fontSize: '18px',
   maxWidth: '400px',
   padding: '10px 24px',
   borderRadius: '8px',

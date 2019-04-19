@@ -7,7 +7,8 @@ const style = {
   boxSizing: 'border-box',
   border: 'none',
   borderBottom: '2px solid #9e9e9e',
-  fontSize: '18px'
+  fontSize: '18px',
+  width: 'inherit'
 }
 
 // add :focus css attribute

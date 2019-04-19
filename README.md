@@ -9,6 +9,10 @@
 ### Genre Playlist
 - refactor state
 
+### Artist Playlist
+- reuse genre playlist components
+- refactor into multiple files
+
 ## Server
 - env specific redirect uri -- have local env setup, need prod one
 - redis connection for deployment

@@ -4,16 +4,17 @@ import Button from './Button'
 import Card from './Card'
 import Input from './Input'
 
-const style = {
-  display: 'flex',
-  flexDirection: 'column'
+const margin = {
+  margin: '10px'
 }
 
 export default () => {
   return (
-    <div style={style}>
-      <Button text='playground' />
-      <Input />
+    <div>
+      <Button text='button' />
+      <div style={margin}></div>
+      <Input placeholder='input'/>
+      <div style={margin}></div>
       <Card title={casual.short_description} content={casual.description}/>
     </div>
   )

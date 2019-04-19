@@ -19,6 +19,7 @@ app.use('/api', require('./routes/profile'))
 app.use('/api', require('./routes/search'))
 app.use('/api', require('./routes/topGenres'))
 app.use('/api', require('./routes/genrePlaylistRoutes'))
+app.use('/api', require('./routes/artistPlaylist'))
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/../client/build/index.html'))

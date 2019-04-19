@@ -23,5 +23,6 @@ export default () => (
     <a href='/search'>Search</a>
     <a href='/discover'>Discover</a>
     <a href='/genre-playlist'>Genre Playlist</a>
+    <a href='/artist-playlist'>Artist Playlist</a>
   </div>
 )

@@ -29,19 +29,11 @@ export default (props) => (
     <Input type='text' id='query' placeholder='search' />
     <Button text='Submit' />
     
-    <div className='search-types'>
-      <div>
-        <input type='checkbox' id='track-checkbox'></input> Track
-      </div>
-      <div>
-        <input type='checkbox' id='artist-checkbox'></input> Artist
-      </div>
-      <div>
-        <input type='checkbox' id='album-checkbox'></input> Album
-      </div>
-      <div>
-        <input type='checkbox' id='playlist-checkbox'></input> Playlist
-      </div>
+    <div>
+      <Input type='checkbox' id='track-checkbox' /> Track
+      <Input type='checkbox' id='artist-checkbox' /> Artist
+      <Input type='checkbox' id='album-checkbox' /> Album
+      <Input type='checkbox' id='playlist-checkbox' /> Playlist
     </div>
   </form>
 )
