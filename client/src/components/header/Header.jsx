@@ -3,18 +3,13 @@ import cookie from 'js-cookie'
 import './styles.css'
 import { logout } from '../../utils/fetch'
 
-const isLoggedIn = () => {
-  const authorized = cookie.get('authorized')
-  return authorized ? true : false
-}
-
 const logoutUser = async () => {
   await logout()
   cookie.set('authorized', false)
   cookie.remove('authorized')
 }
 
-const authHeader = isLoggedIn() ? <a href='/' onClick={logoutUser}>Logout</a> : <a href='/'>Login</a>
+const authHeader = (window.location.pathname === '/') ? <div/> : <a href='/' onClick={logoutUser}>Logout</a>
 
 export default () => (
   <div className='header'>

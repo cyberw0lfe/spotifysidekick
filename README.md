@@ -4,7 +4,6 @@
 ## Client
 ### General
 - better documentation.. look into the thing Andric and I used
-- ********* Make signed in part of state instead of cookie ******... duh
 
 ### Genre Playlist
 - refactor state

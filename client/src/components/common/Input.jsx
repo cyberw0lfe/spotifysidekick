@@ -1,7 +1,6 @@
 import React from 'react'
 
 const style = {
-  // type: text, password, number, etc.
   maxWidth: '400px',
   padding: '10px 5px',
   boxSizing: 'border-box',
