@@ -1,16 +1,14 @@
-const React = require('react')
+import React from 'react'
+import './styles.css'
 
 // onMouseEnter and onMouseLeave for hover effects
 
-const style = {
-  backgroundColor: 'green',
-  color: 'white',
-  fontSize: '18px',
-  maxWidth: '400px',
-  padding: '10px 24px',
-  borderRadius: '8px',
-}
-
 export default (props) => (
-  <button style={style} onClick={props.onClick}>{props.text}</button>
+  <button 
+    id='button'
+    style={props.style}
+    onClick={props.onClick}
+  >
+    {props.text}
+  </button>
 )

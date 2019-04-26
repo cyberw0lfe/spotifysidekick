@@ -14,5 +14,9 @@ export default () => {
       })
   }, [loading])
 
-  return loading ? <div className='profile-container'>Loading...</div> : <ProfileDisplay profile={profile} />
+  return (
+    <div style={{textAlign: 'center'}}>
+      {loading ? <div>Loading...</div> : <ProfileDisplay profile={profile} />}
+    </div>
+  )
 }

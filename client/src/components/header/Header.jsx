@@ -13,11 +13,11 @@ const authHeader = (window.location.pathname === '/') ? <div/> : <a href='/' onC
 
 export default () => (
   <div className='header'>
-    {authHeader}
     <a href='/profile'>Profile</a>
     <a href='/search'>Search</a>
     <a href='/discover'>Discover</a>
     <a href='/genre-playlist'>Genre Playlist</a>
     <a href='/artist-playlist'>Artist Playlist</a>
+    {authHeader}
   </div>
 )

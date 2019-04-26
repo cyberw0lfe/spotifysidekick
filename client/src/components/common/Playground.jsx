@@ -11,7 +11,7 @@ const margin = {
 export default () => {
   return (
     <div>
-      <Button text='button' />
+      <Button text='button'/>
       <div style={margin}></div>
       <Input placeholder='input'/>
       <div style={margin}></div>
