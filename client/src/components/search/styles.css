@@ -2,3 +2,12 @@
   display: flex;
   flex-direction: column;
 }
+
+#search-results {
+  display: inline;
+  margin: 0px 0px 0px 220px;
+}
+
+.result-card {
+  margin: 10px 0px;
+}

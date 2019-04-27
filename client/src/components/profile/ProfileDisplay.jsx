@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../common/Card'
+import Paper from '../common/Paper'
 import './styles.css'
 
 const renderProfile = (profile) => (
@@ -15,5 +15,5 @@ const renderProfile = (profile) => (
 )
 
 export default (props) => (
-  <Card content={renderProfile(props.profile)} />
+  <Paper content={renderProfile(props.profile)} style={{margin: '20px 0px'}} />
 )

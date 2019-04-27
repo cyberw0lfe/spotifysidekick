@@ -3,6 +3,9 @@
   display: flex;
   background-color: mediumseagreen;
   justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 50px;
 }
 
 .header a {

@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.com/adamtwolfe/spotify.svg?token=2txtSqzFNyGWxtK6gzgr&branch=master)](https://travis-ci.com/adamtwolfe/spotify)
 
 # TODO
+## Bugs
+- multiple searches with different result types causes error
 ## Client
 ### General
 - better documentation.. look into the thing Andric and I used
