@@ -1,4 +1,5 @@
 import React from 'react'
+import Paper from '../common/Paper'
 import Button from '../common/Button'
 import Input from '../common/Input'
 import './styles.css'
@@ -34,14 +35,24 @@ const generatePlaylist = async (setLoading, selectedGenres, setPlaylist) => {
   }
 }
 
+const styles = {
+  paper: {
+    height: '100vh',
+    width: '200px',
+    position: 'fixed'
+  }
+}
+
 export default (props) => (
-  <form className='genre-playlist-form' onSubmit={() => {generatePlaylist(props.setLoading, props.selectedGenres, props.setPlaylist)}}>
-    <Input type='number' id='limit' placeholder='track count' />
-    <Input type='text' id='playlist-name' placeholder='playlist name' />
-    <div className='save-playlist'>
-      <Input type='checkbox' id='save-toggle' />
-      Save Playlist?
-    </div>
-    <Button text='Submit' />
-  </form>
+  <Paper style={styles.paper} content={
+    <form className='genre-playlist-form' onSubmit={() => {generatePlaylist(props.setLoading, props.selectedGenres, props.setPlaylist)}}>
+      <Input type='number' id='limit' placeholder='track count' />
+      <Input type='text' id='playlist-name' placeholder='playlist name' />
+      <div className='save-playlist'>
+        <Input type='checkbox' id='save-toggle' />
+        Save Playlist?
+      </div>
+      <Button text='Submit' />
+    </form>
+  } />
 )

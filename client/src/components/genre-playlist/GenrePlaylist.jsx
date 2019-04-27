@@ -34,11 +34,9 @@ export default () => {
   if(playlist.length > 0) return <PlaylistDisplay playlist={playlist} onClick={resetState}/>
 
   return (
-    <div className='genre-playlist-container'>
-      <div>
-        <GenreSelector genres={genres} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} onClick={unselectGenre}/>
-      </div>
+    <div>
       <Form setLoading={setLoading} selectedGenres={selectedGenres} setPlaylist={setPlaylist} />
+      <GenreSelector genres={genres} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} onClick={unselectGenre}/>
     </div>
   )
 }

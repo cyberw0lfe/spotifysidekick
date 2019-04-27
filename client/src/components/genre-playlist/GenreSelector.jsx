@@ -1,6 +1,5 @@
 import React from 'react'
 import './styles.css'
-import styles from './styles'
 import Card from '../common/Card'
 
 const genreClick = (genre, selectedGenres, setSelectedGenres) => {
@@ -27,13 +26,15 @@ const renderSelectedGenres = (props) => {
   }
 }
 
+const style = {
+  margin: '0px 0px 0px 20px',
+}
+
 export default (props) => {
   return (
-    <div style={styles.genreSelectContainer}>
+    <div className='genre-select-container'>
       <Card title={'Seed Genres'} content={renderSeedGenres(props)} />
-      <div style={styles.marginLeft}>
-        <Card title={'Selected Genres'} content={renderSelectedGenres(props)} />
-      </div>
+      <Card style={style} title={'Selected Genres'} content={renderSelectedGenres(props)} />
     </div>
   )
 }
