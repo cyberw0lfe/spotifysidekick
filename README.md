@@ -17,22 +17,20 @@
 ## Server
 - env specific redirect uri -- have local env setup, need prod one
 - redis connection for deployment
+- flush redis every so often
 
 ## Devops
-- Travis CI
-- snyk ci/cd
-- [Custom Domain](https://devcenter.heroku.com/articles/custom-domains)
-- figure out devDependencies with heroku (connect-api-mocker should be devDep)
+- Travis CI (when public)
+- snyk ci/cd (when public)
+- [Custom Domain](https://devcenter.heroku.com/articles/custom-domains) (when public)
+- figure out devDependencies with heroku (connect-api-mocker should be devDep) (when public)
 
 ## Styling
-- refactor CSS / build common component lib
-- Search page
-- Genre playlist (make "card" component for seed and selected genres)
+- CSS audit (inline vs imported style sheets)
 
 # Ideas / Features
 - Make playlist from top artists / related artists
 - track newly released spotify playlists
-- top genre cloud
 - add more on discover
 
 # High Level Arch Overview
