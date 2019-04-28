@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import Input from '../common/Input'
 import Button from '../common/Button'
 import Card from '../common/Card'
+import Paper from '../common/Paper'
+import Panel from '../common/FixedPanel'
 import { generateArtistPlaylist } from '../../utils/fetch'
+import './styles.css'
 
 
 
@@ -13,7 +16,8 @@ const addArtist = (event, seedArtists, setSeedArtists) => {
   document.getElementById('seed-artist').value = ''
 }
 
-const generatePlaylist = async (seedArtists, setPlaylist) => {
+const generatePlaylist = async (event, seedArtists, setPlaylist) => {
+  event.preventDefault()
   const name = document.getElementById('playlist-name').value
   const limit = document.getElementById('limit').value
   const save = document.getElementById('save-toggle').checked
@@ -37,27 +41,61 @@ const renderPlaylist = (playlist) => {
   }
 }
 
+const styles = {
+  contentContainer: {
+    display: 'flex',
+    padding: '15px 0px 0px 220px',
+  },
+  addArtistContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: 'min-content',
+  },
+  addArtistButton: {
+    width: '45%',
+    margin: '5px'
+  },
+  seedArtistCard: {
+    margin: '15px 0px 0px 0px'
+  },
+  playlistCard: {
+    margin: '0px 0px 0px 20px',
+    minWidth: '200px'
+  }
+}
+
 export default () => {
   const [seedArtists, setSeedArtists] = useState([])
   const [playlist, setPlaylist] = useState([])
 
   return (
     <div>
-      <form onSubmit={(event) => addArtist(event, seedArtists, setSeedArtists)}>
-        <Input type='text' placeholder='seed artist' id='seed-artist' />
-        <Button text='Add' />
-        <Button text='Clear' onClick={() => setSeedArtists([])}/>
-        <Button text='Submit' onClick={() => generatePlaylist(seedArtists, setPlaylist)} />
-        <div>
-          <Input type='number' placeholder='track count' id='limit'/>
+      <Panel content={
+        <form className='artist-playlist-form' onSubmit={(event) => {generatePlaylist(event, seedArtists, setPlaylist)}}>
+          <Input type='number' placeholder='track count' id='limit' />
           <Input type='text' placeholder='playlist name' id='playlist-name' />
-          <Input type='checkbox' id='save-toggle' /> Save Playlist?
+          <div>
+            <Input type='checkbox' id='save-toggle' /> Save Playlist?
+          </div>
+          <Button text='Submit' />
+        </form>
+      } />
+
+      <div style={styles.contentContainer}>
+        <div style={styles.addArtistContainer}>
+          <Paper content={
+            <form className='artist-playlist-form' onSubmit={(event) => addArtist(event, seedArtists, setSeedArtists)}>
+              <Input type='text' placeholder='seed artist' id='seed-artist' />
+              <div>
+                <Button style={styles.addArtistButton} text='Add' />
+                <Button style={styles.addArtistButton} text='Clear' onClick={() => setSeedArtists([])}/>
+              </div>
+            </form>
+          } />
+          <Card style={styles.seedArtistCard} title='Seed Artists' content={renderSeedArtists(seedArtists)} />
         </div>
-      </form>
-      <br/>
-      <Card title='Seed Artists' content={renderSeedArtists(seedArtists)} />
-      
-      <Card title='Playlist' content={renderPlaylist(playlist)} />
+        <Card style={styles.playlistCard} title='Playlist' content={renderPlaylist(playlist)} />
+      </div>
     </div>
   )
 }
