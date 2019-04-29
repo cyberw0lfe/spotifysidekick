@@ -9,15 +9,17 @@
 
 ### Genre Playlist
 - refactor state
+- combine with artist playlist
 
 ### Artist Playlist
 - reuse genre playlist components
 - refactor into multiple files
+- combine with genre playlist
 
 ## Server
-- env specific redirect uri -- have local env setup, need prod one
-- redis connection for deployment
-- flush redis every so often
+- env specific redirect uri -- have local env setup, need prod one (when public)
+- redis connection for deployment (when public)
+- flush redis every so often (when public)
 
 ## Devops
 - Travis CI (when public)

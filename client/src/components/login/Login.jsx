@@ -7,9 +7,10 @@ const clickHandler = async () => {
   window.location.replace(result.authorizeUrl)
 }
 
+const style = {
+  margin: '20px'
+}
+
 export default () => (
-  <div>
-    <br/>
-    <Button onClick={clickHandler} text='Login'/>
-  </div>
+  <Button onClick={clickHandler} text='Login' style={style} />
 )

@@ -1,5 +1,14 @@
-.artist-playlist-form {
+#artist-playlist-form {
   display: flex;
   flex-direction: column;
   padding: 0px 5px;
+}
+
+#content-container {
+  display: flex;
+  padding: 15px 0px 0px 220px;
+}
+
+#button-container {
+  display: flex;
 }

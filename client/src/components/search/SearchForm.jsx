@@ -1,7 +1,7 @@
 import React from 'react'
 import Input from '../common/Input'
 import Button from '../common/Button'
-import Paper from '../common/Paper'
+import Panel from '../common/FixedPanel'
 import { executeSearch } from '../../utils/fetch';
 import './styles.css'
 
@@ -49,7 +49,8 @@ const styles = {
   paper: {
     height: '100vh',
     width: '200px',
-    position: 'fixed'
+    maxHeight: '100%',
+    position: 'fixed',
   },
 }
 
@@ -68,7 +69,7 @@ const renderToggles = (
 
 
 export default (props) => (
-  <Paper style={styles.paper} content={
+  <Panel style={styles.paper} content={
     <form style={styles.form} onSubmit={(event) => search(event, props.setState.setShowResult, props.setState.setSearchResult)}>
       <Input type='number' id='limit' placeholder='result limit' style={styles.margin}/>
       <Input type='text' id='query' placeholder='search' style={styles.margin} />

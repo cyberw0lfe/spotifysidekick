@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const apiMocker = require('connect-api-mocker')
+const fetch = require('node-fetch')
 
 const app = express()
 const port = process.env.PORT || 5000

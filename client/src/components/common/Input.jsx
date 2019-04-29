@@ -11,6 +11,7 @@ export default (props) => {
       name={props.id}
       style={props.style}
       placeholder={props.placeholder}
+      autoComplete='off'
     ></input>
   )
 }

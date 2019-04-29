@@ -1,5 +1,5 @@
 import React from 'react'
-import Paper from '../common/Paper'
+import Panel from '../common/FixedPanel'
 import Button from '../common/Button'
 import Input from '../common/Input'
 import './styles.css'
@@ -35,16 +35,8 @@ const generatePlaylist = async (setLoading, selectedGenres, setPlaylist) => {
   }
 }
 
-const styles = {
-  paper: {
-    height: '100vh',
-    width: '200px',
-    position: 'fixed'
-  }
-}
-
 export default (props) => (
-  <Paper style={styles.paper} content={
+  <Panel content={
     <form className='genre-playlist-form' onSubmit={() => {generatePlaylist(props.setLoading, props.selectedGenres, props.setPlaylist)}}>
       <Input type='number' id='limit' placeholder='track count' />
       <Input type='text' id='playlist-name' placeholder='playlist name' />

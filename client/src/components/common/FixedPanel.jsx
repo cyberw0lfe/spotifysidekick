@@ -3,6 +3,7 @@ import Paper from './Paper'
 
 const defaultStyles = {
   height: '100vh',
+  maxHeight: '100%',
   width: '200px',
   position: 'fixed'
 }

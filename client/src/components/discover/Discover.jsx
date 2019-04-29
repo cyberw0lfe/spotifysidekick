@@ -10,6 +10,11 @@ const renderGenres = (genres) => {
   })
 }
 
+const style = {
+  margin: '20px 0px 0px 20px',
+  width: 'fit-content'
+}
+
 export default () => {
   const [loading, setLoading] = useState(true)
   const [topGenres, setTopGenres] = useState()
@@ -25,8 +30,6 @@ export default () => {
   const title = 'Your Top Genres'
   const content = loading ? <div>Loading...</div> : renderGenres(topGenres) 
   return (
-    <div className='discover-container'>
-      <Card title={title} content={content} />
-    </div>
+    <Card title={title} content={content} style={style} />
   )
 }

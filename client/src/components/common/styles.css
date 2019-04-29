@@ -1,3 +1,36 @@
+#header {
+  overflow: hidden;
+  display: flex;
+  background-color: mediumseagreen;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+}
+
+#header a {
+  float: left;
+  color: white;
+  text-align: center;
+  align-items: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 15px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+#header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#header a:active {
+  background-color: mediumspringgreen;
+  color: white;
+}
+
 .list-item {
   padding: 2px 0px 2px 4px;
 }
@@ -22,7 +55,6 @@
 }
 
 #card-container {
-  display: inline-block;
   max-width: 400px;
   max-height: 90vh;
   height: min-content;

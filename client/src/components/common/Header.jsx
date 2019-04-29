@@ -12,12 +12,13 @@ const logoutUser = async () => {
 const authHeader = (window.location.pathname === '/') ? <div/> : <a href='/' onClick={logoutUser}>Logout</a>
 
 export default () => (
-  <div className='header'>
+  <div id='header'>
     <a href='/profile'>Profile</a>
     <a href='/search'>Search</a>
     <a href='/discover'>Discover</a>
     <a href='/genre-playlist'>Genre Playlist</a>
     <a href='/artist-playlist'>Artist Playlist</a>
+    <a href='/generate-playlist'>Generate Playlist</a>
     {authHeader}
   </div>
 )

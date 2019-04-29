@@ -42,21 +42,15 @@ const renderPlaylist = (playlist) => {
 }
 
 const styles = {
-  contentContainer: {
-    display: 'flex',
-    padding: '15px 0px 0px 220px',
-  },
-  addArtistContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: 'min-content',
+  artistInput: {
+    margin: '5px',
   },
   addArtistButton: {
     width: '45%',
     margin: '5px'
   },
   seedArtistCard: {
-    margin: '15px 0px 0px 0px'
+    margin: '15px 0px 0px 0px',
   },
   playlistCard: {
     margin: '0px 0px 0px 20px',
@@ -71,7 +65,7 @@ export default () => {
   return (
     <div>
       <Panel content={
-        <form className='artist-playlist-form' onSubmit={(event) => {generatePlaylist(event, seedArtists, setPlaylist)}}>
+        <form id='artist-playlist-form' onSubmit={(event) => {generatePlaylist(event, seedArtists, setPlaylist)}}>
           <Input type='number' placeholder='track count' id='limit' />
           <Input type='text' placeholder='playlist name' id='playlist-name' />
           <div>
@@ -81,12 +75,12 @@ export default () => {
         </form>
       } />
 
-      <div style={styles.contentContainer}>
-        <div style={styles.addArtistContainer}>
+      <div id='content-container'>
+        <div>
           <Paper content={
             <form className='artist-playlist-form' onSubmit={(event) => addArtist(event, seedArtists, setSeedArtists)}>
-              <Input type='text' placeholder='seed artist' id='seed-artist' />
-              <div>
+              <Input style={styles.artistInput} type='text' placeholder='seed artist' id='seed-artist' />
+              <div id='button-container'>
                 <Button style={styles.addArtistButton} text='Add' />
                 <Button style={styles.addArtistButton} text='Clear' onClick={() => setSeedArtists([])}/>
               </div>
