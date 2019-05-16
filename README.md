@@ -6,6 +6,7 @@
 ## Client
 ### General
 - better documentation.. look into the thing Andric and I used
+- make an error page
 
 ### Genre Playlist
 - refactor state
