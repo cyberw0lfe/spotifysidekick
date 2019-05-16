@@ -4,12 +4,6 @@ node_js:
 
 # don't build
 branches:
-  except:
-    - develop
   only:
     - master
-
-# build
-# branches:
-#   only:
-#     - master
+    - develop
