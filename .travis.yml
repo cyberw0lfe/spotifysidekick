@@ -6,8 +6,10 @@ node_js:
 branches:
   except:
     - develop
-
-# build
-branches:
   only:
     - master
+
+# build
+# branches:
+#   only:
+#     - master
