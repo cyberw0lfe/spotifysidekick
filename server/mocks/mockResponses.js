@@ -6,7 +6,7 @@ module.exports = {
     'id': '123275042',
     'name': casual.full_name,
     'email': casual.email,
-    'url': 'https://open.spotify.com/user/123275042',
+    'url': 'https://open.spotify.com/user/1',
     'followers': casual.integer(from = 0, to = 1000),
     'imgUrl': 'https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/36974108_10156653866466474_5593312321620410368_n.jpg?_nc_cat=103&_nc_ht=scontent.xx&oh=23f9513cc27a4f7d93a0c6642c7f60a7&oe=5D4A11AD',
     'country': 'US'

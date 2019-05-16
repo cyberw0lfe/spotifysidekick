@@ -36,7 +36,6 @@ const logout = async () => {
       Accept: 'application/json'
     }
   })
-  // return await response.json()
 }
 
 const fetchProfile = async () => {

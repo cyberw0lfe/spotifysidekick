@@ -11,7 +11,7 @@
 - refactor state
 - combine with artist playlist
 
-### Artist Playlist
+### Artist Playlist 
 - reuse genre playlist components
 - refactor into multiple files
 - combine with genre playlist
@@ -35,12 +35,7 @@
 - track newly released spotify playlists
 - add more on discover
 
-# High Level Arch Overview
-Source Code
-- [Bitbucket](https://bitbucket.org/adamtwolfe/spotify/src/master/)
-- [Github](https://github.com/adamtwolfe/spotify)
-Client - ejected `create-react-app`
-Server - `express` server that serves up client files
-Mock Server - mocked out responses from express API using `connect-api-mocker`
+# Links
+Source Code - [Github](https://github.com/adamtwolfe/spotify)
 Deploy - [Heroku](https://frozen-tor-75481.herokuapp.com/)
 Build - [Travis CI](https://travis-ci.com/adamtwolfe/spotify)
