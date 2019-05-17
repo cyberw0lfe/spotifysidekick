@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/adamtwolfe/spotify.svg?token=2txtSqzFNyGWxtK6gzgr&branch=master)](https://travis-ci.com/adamtwolfe/spotify)
+[![Build Status](https://travis-ci.org/adamtwolfe/spotify-dashboard.svg?branch=master)](https://travis-ci.org/adamtwolfe/spotify-dashboard)
 
 # TODO
 ## Bugs
