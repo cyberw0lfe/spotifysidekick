@@ -1,4 +1,7 @@
 import React from 'react'
+import Input from '../common/Input'
+import Button from '../common/Button'
+import Panel from '../common/FixedPanel'
 import { executeSearch } from '../../utils/fetch';
 import './styles.css'
 
@@ -12,34 +15,66 @@ const getSearchTypes = () => {
 }
 
 const search = async (event, setShowResult, setSearchResult) => {
+  setShowResult({
+    tracks: false,
+    artists: false,
+    albums: false,
+    playlists: false
+  })
   event.preventDefault()
   const query = document.getElementById('query').value
   const types = getSearchTypes()
   const limit = document.getElementById('limit').value
   const result = await executeSearch(query, types, limit)
   setSearchResult(result)
-  setShowResult(true)
+  setShowResult({
+    tracks: types.includes('track') ? true : false,
+    artists: types.includes('artist') ? true : false,
+    albums: types.includes('album') ? true : false,
+    playlists: types.includes('playlist') ? true : false
+  })
 }
 
-export default (props) => (
-  <form onSubmit={(event) => search(event, props.setState.setShowResult, props.setState.setSearchResult)}>
-    <div className='search-types'>
-      <div>
-        <input type='checkbox' id='track-checkbox'></input> Track
-      </div>
-      <div>
-        <input type='checkbox' id='artist-checkbox'></input> Artist
-      </div>
-      <div>
-        <input type='checkbox' id='album-checkbox'></input> Album
-      </div>
-      <div>
-        <input type='checkbox' id='playlist-checkbox'></input> Playlist
-      </div>
+const styles = {
+  margin: {
+    margin: '5px 10px'
+  },
+  toggleContainer: {
+    display: 'inline-flex'
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  paper: {
+    height: '100vh',
+    width: '200px',
+    maxHeight: '100%',
+    position: 'fixed',
+  },
+}
+
+const renderToggles = (
+  <div style={styles.toggleContainer}>
+    <div style={styles.margin}>
+      <Input type='checkbox' id='track-checkbox' /> Track
+      <Input type='checkbox' id='artist-checkbox' /> Artist
     </div>
-    <input type='number' id='limit' name='limit' placeholder='search limit'></input>
-    <br/>
-    <input type='text' id='query' name='query' placeholder='search'></input>
-    <button id='submit' type='submit'>Submit</button>
-  </form>
+    <div style={styles.margin}>
+      <Input type='checkbox' id='album-checkbox' /> Album
+      <Input type='checkbox' id='playlist-checkbox' /> Playlist
+    </div>
+  </div>
+)
+
+
+export default (props) => (
+  <Panel style={styles.paper} content={
+    <form style={styles.form} onSubmit={(event) => search(event, props.setState.setShowResult, props.setState.setSearchResult)}>
+      <Input type='number' id='limit' placeholder='result limit' style={styles.margin}/>
+      <Input type='text' id='query' placeholder='search' style={styles.margin} />
+      {renderToggles}
+      <Button text='Submit' style={styles.margin} />
+    </form>
+  } />
 )

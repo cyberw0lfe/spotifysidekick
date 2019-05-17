@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../common/Button'
 import { getLoginUrl } from '../../utils/fetch';
  
 const clickHandler = async () => {
@@ -6,9 +7,10 @@ const clickHandler = async () => {
   window.location.replace(result.authorizeUrl)
 }
 
+const style = {
+  margin: '20px'
+}
+
 export default () => (
-  <div>
-    <br/>
-    <button onClick={clickHandler}>Login</button>
-  </div>
+  <Button onClick={clickHandler} text='Login' style={style} />
 )

@@ -1,5 +1,5 @@
 {
-  "name": "spotify",
+  "name": "spotify-dashboard",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,6 +23,7 @@
     "js-cookie": "^2.2.0",
     "jsonwebtoken": "^8.5.1",
     "lodash.get": "^4.4.2",
+    "node-fetch": "^2.4.0",
     "nodemon": "^1.18.10",
     "path": "^0.12.7",
     "querystring": "^0.2.0",

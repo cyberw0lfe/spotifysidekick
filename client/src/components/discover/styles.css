@@ -1,10 +1,4 @@
-.discover-container {
-  display: flex;
-  flex-direction: column;
-  padding: 10px 0px;
-  max-width: 300px;
-}
-
 .top-genre {
-  padding: 2px 0px;
+  padding: 2px 5px;
+  text-align: start;
 }
