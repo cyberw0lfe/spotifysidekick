@@ -19,17 +19,15 @@
 - combine with genre playlist
 
 ## Server
-- env specific redirect uri -- have local env setup, need prod one
-- redis connection for deployment
 - flush redis every so often
 
 ## Devops
-- snyk ci/cd
 - [Custom Domain](https://devcenter.heroku.com/articles/custom-domains)
 - figure out devDependencies with heroku (connect-api-mocker should be devDep)
 
 ## Styling
 - CSS audit (inline vs imported style sheets)
+- add support for mobile
 
 # Ideas / Features
 - Make playlist from top artists / related artists
