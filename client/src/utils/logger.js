@@ -1,2 +1,14 @@
-import { Timber } from '@timberio/browser'
-export default new Timber(process.env.TIMBER_API_KEY, process.env.TIMBER_SRC_ID)
+export default async (message) => {
+  try{
+    await fetch('/api/log', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(message)
+    })
+  } catch(err) {
+    console.log(err)
+  }
+}

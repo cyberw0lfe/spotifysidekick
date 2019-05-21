@@ -31,7 +31,7 @@ export default () => {
         setProfile(fetchedProfile)
         setLoading(false)
         try {
-          logger.info({
+          logger({
             level: 'info',
             event: 'login',
             route: '/profile',
