@@ -15,7 +15,7 @@ router.post('/log', withAuth, (req, res) => {
   const log = logMap()
   console.log(JSON.stringify(req.body))
   try {
-    log[level](req.body)
+    log[level](req.body) // TODO: ramda
     res.sendStatus(200)
   } catch(err) {
     console.log(err)
