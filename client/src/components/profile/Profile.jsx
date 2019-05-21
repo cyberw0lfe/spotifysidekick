@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Paper from '../common/Paper'
 import { fetchProfile } from '../../utils/fetch'
+import logger from '../../utils/logger'
 import './styles.css'
 
 const renderProfile = (profile) => (
@@ -29,6 +30,17 @@ export default () => {
       .then(fetchedProfile => {
         setProfile(fetchedProfile)
         setLoading(false)
+        try {
+          logger({
+            level: 'info',
+            event: 'login',
+            route: '/profile',
+            email: fetchedProfile.email
+          })
+        } catch (err) {
+          console.log(err)
+        }
+        
       })
   }, [loading])
 

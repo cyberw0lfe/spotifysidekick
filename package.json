@@ -13,6 +13,7 @@
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
+    "@timberio/node": "^0.33.0",
     "bcrypt": "^3.0.5",
     "casual": "^1.6.0",
     "connect-api-mocker": "^1.4.0",

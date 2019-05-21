@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/adamtwolfe/spotify-dashboard.svg?branch=master)](https://travis-ci.org/adamtwolfe/spotify-dashboard)
 
 # TODO
+- add license
+
 ## Bugs
 - multiple searches with different result types causes error
 
@@ -12,6 +14,8 @@
   - unit
   - ETE
 - Logging
+- Turn off email notifications, add slack webhooks for PR/build/deploy
+- Update icon / page title
 
 ### Styling
 - CSS audit (inline vs imported style sheets)
@@ -33,4 +37,5 @@
 # Links
 Source Code - [Github](https://github.com/adamtwolfe/spotify-dashboard)
 Build - [Travis CI](https://travis-ci.org/adamtwolfe/spotify-dashboard)
-Deploy - [Heroku](https://frozen-tor-75481.herokuapp.com/)
+Deploy - [Heroku](https://my-spotify-dashboard.herokuapp.com/)
+Trello - Add here
