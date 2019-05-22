@@ -1,6 +1,8 @@
 language: node_js
+
 node_js:
 - '8'
+
 branches:
   only:
   - master
@@ -12,3 +14,6 @@ deploy:
     secure: iBgPfGXMqB+NKbQH5xTwjnhaYSeuVeDhN6RgbnJYi0HUvUk4tU1R0WbIJiiKbht6he/fFobVWx4iyV2cj1ZgrgqscqQUkq0ikEo4RrYVw22mG/Z2ID2ujV1f/wWGMB4Wjup/DJZGkh1gPumDCiXMDsoPtR57XMKgIGs/x2DpSk8/hsb22S5k8Gn+OXhHVUYDQYbbo2eo9L2HG8Z/x6BKT4DfTctDU3/1lS8AaXZjcedMZB/SadAAReZR/WxALWUmNCWOTBFqIFU9gWMJp7PyO/UNPhsizN/rprpMCv2UQaJ686JZnloVKfW2K1Yd04diZxFlxULuAWiM2LGaUJ0HXFGuDPMNKy87xp7O8ZxHT9gU1qoxZsB6kZyvr/ybylLXO+KLM1aE4ZkIX0eHcwBQxIjgA+AiBZgjozfIsof0PmExYMzRuPR5WOUhC+rHs6E/JDFjR2OdagPE7OOpmK9EzuJPGw71Wana94Pb7MH4L0zio8wX78ub/JtOZgOoFz10A6ecxAGnIlQGgeGFAzhdSZ8aZo2S8gZ1OVvhw0IO7hkQSdMr3VHg9BcGcbBVnXhYU3RQkKIWSmHEGoi7qrPfTPiLL8SzvEEC9qcGueZjeR/bLuro9DFcc0bLWhiBAbiH2bSys83iKQNsI6jmZFtNYDwlOqZ63mtu7W3waG2lx6A=
   app: 
     master: my-spotify-dashboard
+
+notifications:
+  slack: at-wolfe:SQ3xTtxcmdhxmasQ7b73Otbs
