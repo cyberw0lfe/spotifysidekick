@@ -1,8 +1,7 @@
 const app = require('express')
-const { Timber } = require('@timberio/node')
+const logger = require('../logger')
 const { withAuth } = require('../auth/middleware')
 const router = app.Router()
-const logger = new Timber(process.env.TIMBER_API_KEY, process.env.TIMBER_SRC_ID)
 
 const logMap = () => ({
   info: (message) => {logger.info(message)},
