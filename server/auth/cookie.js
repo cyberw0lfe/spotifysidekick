@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 const uuidv4 = require('uuid/v4')
 const { saveToken, deleteToken } = require('./redis')
+const { logger, payloads} = require('../logger')
 const config = require('../config')
 const { secret, audience, issuer } = config.jwt
 
@@ -14,7 +15,12 @@ const issueCookie = (spotifyId, apiToken) => {
   }
   const token = jwt.sign(payload, secret, options)
   saveToken(uuid, apiToken)
-  console.log(`Saved user: ${JSON.stringify(payload)}`)
+
+  console.log(`Saved user: ${uuid}`)
+  const saveJwtEvent = payloads.saveJwt
+  saveJwtEvent.uuid = uuid
+  logger.info(saveJwtEvent)
+  
   return token
 }
 
@@ -27,6 +33,9 @@ const invalidateCookie = (req, res, next) => {
       } else {
         deleteToken(decoded.uuid)
         console.log(`Deleted user: ${decoded.uuid}`)
+        const deleteJwtEvent = payloads.deleteJwt
+        deleteJwtEvent.uuid = decoded.uuid
+        logger.info(deleteJwtEvent)
       }
     })
   } else console.log('No cookie to invalidate')
