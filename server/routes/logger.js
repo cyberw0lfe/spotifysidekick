@@ -24,4 +24,7 @@ router.post('/log', withAuth, (req, res) => {
   
 })
 
-module.exports = router
+module.exports = {
+  router,
+  logger
+}

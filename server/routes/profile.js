@@ -1,9 +1,17 @@
 const app = require('express')
 const router = app.Router()
 const get = require('lodash.get')
+const logger = require('./logger').logger
 const { withAuth } = require('../auth/middleware')
 const spotifyApi = require('../spotifyClient.js')
 
+const payload = {
+  level: 'info',
+  event: 'login',
+  route: '/api/profile',
+  email: '',
+  timestamp: Date.now()
+}
 
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -19,7 +27,10 @@ router.get('/profile', withAuth, async (req, res) => {
       imgUrl: get(body, 'images[0].url', 'undef'),
       country: get(body, 'country', 'undef')
     }
-    
+
+    payload.email = profile.email
+    logger.info(payload)
+
     spotifyApi.setAccessToken('')
     res.send(profile)
   } catch(err) {
