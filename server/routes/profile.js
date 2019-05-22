@@ -1,17 +1,9 @@
 const app = require('express')
 const router = app.Router()
 const get = require('lodash.get')
-const logger = require('./logger').logger
+const { logger, payloads } = require('../logger')
 const { withAuth } = require('../auth/middleware')
 const spotifyApi = require('../spotifyClient.js')
-
-const payload = {
-  level: 'info',
-  event: 'login',
-  route: '/api/profile',
-  email: '',
-  timestamp: Date.now()
-}
 
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -28,8 +20,9 @@ router.get('/profile', withAuth, async (req, res) => {
       country: get(body, 'country', 'undef')
     }
 
-    payload.email = profile.email
-    logger.info(payload)
+    const loginEvent = payloads.login
+    loginEvent.email = profile.email
+    logger.info(loginEvent)
 
     spotifyApi.setAccessToken('')
     res.send(profile)
