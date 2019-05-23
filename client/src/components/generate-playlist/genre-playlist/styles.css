@@ -1,0 +1,28 @@
+.genre-list-item {
+  padding: 2px 0px 2px 4px;
+}
+
+.genre-list-item:hover{
+  background-color: mediumseagreen;
+  color: white;
+}
+
+.genre-playlist-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 5px;
+}
+
+.save-playlist input {
+  margin: 0px 10px 0px 0px;
+}
+
+.genre-select-container {
+  display: flex;
+  margin: 0px 0px 0px 220px;
+  padding: 15px 0px 0px 0px;
+}
+
+hr {
+  margin: 0px;
+}

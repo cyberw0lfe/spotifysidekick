@@ -7,8 +7,6 @@ import Panel from '../common/FixedPanel'
 import { generateArtistPlaylist } from '../../utils/fetch'
 import './styles.css'
 
-
-
 const addArtist = (event, seedArtists, setSeedArtists) => {
   event.preventDefault()
   const seedArtist = document.getElementById('seed-artist').value

@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PlaylistInfoPanel from './PlaylistInfoPanel'
+import GenrePlaylist from './genre-playlist/GenrePlaylist'
 
-export default () => (
-  <PlaylistInfoPanel id='test' />
-)
+export default () => {
+  const [playlistType, setPlaylistType] = useState('genre')
 
-
-// playlist info panel calling the correct onclick method
-// Toggle for seed selection type
-// Seed selection
-//   - seed genres card OR seed artist form and artist card
-//   - selected seed card
-// Playlist result
+  return (
+    <div>
+      <PlaylistInfoPanel />
+      <GenrePlaylist />
+    </div>
+  )
+}
