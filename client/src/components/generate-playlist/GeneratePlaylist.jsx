@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import PlaylistInfoPanel from './PlaylistInfoPanel'
-import GenrePlaylist from './genre-playlist/GenrePlaylist'
+import SeedGenres from './SeedGenres'
+import SeedArtistForm from './SeedArtistForm'
 
 export default () => {
-  const [playlistType, setPlaylistType] = useState('genre')
-
+  const [playlistType, setPlaylistType] = useState('')
+  
   return (
     <div>
-      <PlaylistInfoPanel />
-      <GenrePlaylist />
+      <PlaylistInfoPanel setPlaylistType={setPlaylistType}/>
+      {playlistType === 'genre' ? <SeedGenres /> : <SeedArtistForm />}
     </div>
   )
 }

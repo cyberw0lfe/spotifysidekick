@@ -8,8 +8,8 @@ export default (props) => (
   <Panel content={
     <form id='artist-playlist-form'>
       <div>
-        <input type='radio' name='type' value='genre' checked/>Genre
-        <input type='radio' name='type' value='playlist' />Playlist
+        <input type='radio' name='type' value='genre' onClick={() => props.setPlaylistType('genre')} />Genre
+        <input type='radio' name='type' value='artist' onClick={() => props.setPlaylistType('artist')} />Artist
       </div>
       <Input type='number' placeholder='track count' id='limit' />
       <Input type='text' placeholder='playlist name' id='playlist-name' />
