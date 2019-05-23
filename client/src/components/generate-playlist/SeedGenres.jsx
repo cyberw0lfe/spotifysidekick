@@ -3,24 +3,23 @@ import Card from '../common/Card'
 import { getGenreSeeds } from '../../utils/fetch'
 import './styles.css'
 
-const genreClick = (genre, selectedGenres, setSelectedGenres) => {
-  if(selectedGenres.length < 5) {
-    setSelectedGenres([...selectedGenres, genre])
+const genreClick = (genre, seeds, setSeeds) => {
+  if(seeds.length < 5) {
+    setSeeds([...seeds, genre])
   } else {
     alert('Select up to 5 seed genres')
   }
 }
 
-const renderSeedGenres = (genres, selectedGenres, setSelectedGenres) => (
+const renderSeedGenres = (genres, seeds, setSeeds) => (
   genres.map(genre => {
-    return <div onClick={() => {genreClick(genre, selectedGenres, setSelectedGenres)}} key={genre} className='genre-list-item'>{genre}</div>
+    return <div onClick={() => {genreClick(genre, seeds, setSeeds)}} key={genre} className='genre-list-item'>{genre}</div>
   })
 )
 
-export default () => {
+export default (props) => {
   const [loading, setLoading] = useState(true)
   const [genres, setGenres] = useState()
-  const [selectedGenres, setSelectedGenres] = useState([])
 
   useEffect(() => {
     getGenreSeeds()
@@ -30,10 +29,10 @@ export default () => {
       })
   }, [])
 
-  if(loading) return <div>Loading...</div>
+  if(loading) return <div className='genre-select-container'>Loading...</div>
   return (
     <div className='genre-select-container'>
-      <Card title={'Seed Genres'} content={renderSeedGenres(genres, selectedGenres, setSelectedGenres)} />
+      <Card title={'Seed Genres'} content={renderSeedGenres(genres, props.seeds, props.setSeeds)} />
     </div>
   )
 }

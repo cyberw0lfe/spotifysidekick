@@ -1,23 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Input from '../common/Input'
 import Button from '../common/Button'
-import Card from '../common/Card'
 import Paper from '../common/Paper'
-
-const addArtist = (event, seedArtists, setSeedArtists) => {
-  event.preventDefault()
-  const seedArtist = document.getElementById('seed-artist').value
-  setSeedArtists([...seedArtists, seedArtist])
-  document.getElementById('seed-artist').value = ''
-}
-
-const renderSeedArtists = (seedArtists) => {
-  if(seedArtists.length > 0) {
-    return seedArtists.map(seedArtist => {
-      return <div key={seedArtist}>{seedArtist}</div>
-    })
-  }
-}
 
 const styles = {
   artistInput: {
@@ -36,23 +20,23 @@ const styles = {
   }
 }
 
-export default () => {
-  const [seedArtists, setSeedArtists] = useState([])
-
-  return (
-    <div id='content-container'>
-      <div>
-        <Paper content={
-          <form className='artist-playlist-form' onSubmit={(event) => addArtist(event, seedArtists, setSeedArtists)}>
-            <Input style={styles.artistInput} type='text' placeholder='seed artist' id='seed-artist' />
-            <div id='button-container'>
-              <Button style={styles.addArtistButton} text='Add' />
-              <Button style={styles.addArtistButton} text='Clear' onClick={() => setSeedArtists([])}/>
-            </div>
-          </form>
-        } />
-        <Card style={styles.seedArtistCard} title='Seed Artists' content={renderSeedArtists(seedArtists)} />
-      </div>
-    </div>
-  )
+const addArtist = (event, seeds, setSeeds) => {
+  event.preventDefault()
+  const seed = document.getElementById('seed-artist').value
+  setSeeds([...seeds, seed])
+  document.getElementById('seed-artist').value = ''
 }
+
+export default (props) => (
+  <div id='content-container'>
+      <Paper content={
+        <form className='artist-playlist-form' onSubmit={(event) => addArtist(event, props.seeds, props.setSeeds)}>
+          <Input style={styles.artistInput} type='text' placeholder='seed artist' id='seed-artist' />
+          <div id='button-container'>
+            <Button style={styles.addArtistButton} text='Add' />
+            <Button style={styles.addArtistButton} text='Clear' onClick={() => props.setSeeds([])}/>
+          </div>
+        </form>
+      } />
+  </div>
+)
