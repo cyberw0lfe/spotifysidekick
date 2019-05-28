@@ -1,4 +1,4 @@
-#artist-playlist-form {
+.artist-playlist-form { /*evaluate*/
   display: flex;
   flex-direction: column;
   padding: 0px 5px;
@@ -9,7 +9,7 @@
   padding: 15px 0px 0px 220px;
 }
 
-#button-container {
+.button-container { /*evaluate*/
   display: flex;
 }
 
@@ -20,22 +20,6 @@
 .genre-list-item:hover{
   background-color: mediumseagreen;
   color: white;
-}
-
-.genre-playlist-form {
-  display: flex;
-  flex-direction: column;
-  padding: 0px 5px;
-}
-
-.save-playlist input {
-  margin: 0px 10px 0px 0px;
-}
-
-.genre-select-container {
-  display: flex;
-  margin: 0px 0px 0px 220px;
-  padding: 15px 0px 0px 0px;
 }
 
 hr {

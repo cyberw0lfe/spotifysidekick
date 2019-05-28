@@ -6,7 +6,7 @@ import './styles.css'
 
 export default (props) => (
   <Panel content={
-    <form id='artist-playlist-form'>
+    <form className='artist-playlist-form'>
       <div>
         <input type='radio' name='type' value='genre' onClick={() => props.setPlaylistType('genre')} />Genre
         <input type='radio' name='type' value='artist' onClick={() => props.setPlaylistType('artist')} />Artist

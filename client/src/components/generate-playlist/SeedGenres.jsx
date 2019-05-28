@@ -29,10 +29,8 @@ export default (props) => {
       })
   }, [])
 
-  if(loading) return <div className='genre-select-container'>Loading...</div>
+  if(loading) return <div>Loading...</div>
   return (
-    <div className='genre-select-container'>
-      <Card title={'Seed Genres'} content={renderSeedGenres(genres, props.seeds, props.setSeeds)} />
-    </div>
+    <Card title={'Seed Genres'} content={renderSeedGenres(genres, props.seeds, props.setSeeds)} />
   )
 }
