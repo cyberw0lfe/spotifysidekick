@@ -11,7 +11,7 @@ export default () => {
   
   return (
     <div>
-      <PlaylistInfoPanel setPlaylistType={setPlaylistType}/>
+      <PlaylistInfoPanel setPlaylistType={setPlaylistType} seeds={seeds} />
       <div id='content-container'>
         {
           playlistType === 'artist'
