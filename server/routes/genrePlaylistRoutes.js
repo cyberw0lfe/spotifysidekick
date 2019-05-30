@@ -46,4 +46,14 @@ router.post('/generate-genre-playlist', withAuth, async (req, res) => {
   }
 })
 
+router.post('/generate-playlist', withAuth, async (req, res) => {
+  try {
+
+  } catch(err) {
+    console.log(`/generate-genre-playlist ERROR: ${err}`)
+    if(err.statusCode) res.sendStatus(err.statusCode)
+    else res.sendStatus(500)
+  }
+})
+
 module.exports = router

@@ -92,32 +92,15 @@ const getGenreSeeds = async () => {
   }
 }
 
-const generateGenrePlaylist = async (genres, name, limit, save) => {
+const generatePlaylist = async (seeds, playlistType, name, limit, save) => {
   try {
-    const response = await fetch('/api/generate-genre-playlist', {
+    const response = await fetch('/api/generate-playlist', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({genres, name, limit, save})
-    })
-    if(response.status === 401) window.location.replace('/')
-    return await response.json()
-  } catch(err) {
-    console.log(err)
-  }
-}
-
-const generateArtistPlaylist = async (artists, name, limit, save) => {
-  try {
-    const response = await fetch('/api/generate-artist-playlist', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({artists, name, limit, save})
+      body: JSON.stringify({seeds, playlistType, name, limit, save})
     })
     if(response.status === 401) window.location.replace('/')
     return await response.json()
@@ -134,6 +117,5 @@ export {
   executeSearch,
   getTopGenres,
   getGenreSeeds,
-  generateGenrePlaylist,
-  generateArtistPlaylist
+  generatePlaylist
 }

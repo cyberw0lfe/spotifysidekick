@@ -8,10 +8,11 @@ import './styles.css'
 export default () => {
   const [playlistType, setPlaylistType] = useState('')
   const [seeds, setSeeds] = useState([])
+  const [playlist, setPlaylist] = useState([])
   
   return (
     <div>
-      <PlaylistInfoPanel setPlaylistType={setPlaylistType} seeds={seeds} />
+      <PlaylistInfoPanel playlistType={playlistType} setPlaylistType={setPlaylistType} seeds={seeds} setPlaylist={setPlaylist}/>
       <div id='content-container'>
         {
           playlistType === 'artist'
