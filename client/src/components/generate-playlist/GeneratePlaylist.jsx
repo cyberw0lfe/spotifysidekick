@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import PlaylistInfoPanel from './PlaylistInfoPanel'
+import FormPanel from './FormPanel'
 import SeedGenres from './SeedGenres'
 import SeedArtistForm from './SeedArtistForm'
 import SelectedSeeds from './SelectedSeeds'
@@ -21,7 +21,7 @@ export default () => {
   
   return (
     <div>
-      <PlaylistInfoPanel playlistType={playlistType} setPlaylistType={setPlaylistType} seeds={seeds} setPlaylist={setPlaylist}/>
+      <FormPanel playlistType={playlistType} setPlaylistType={setPlaylistType} seeds={seeds} setPlaylist={setPlaylist}/>
       <div id='content-container'>
         {
           playlistType === 'artist'
