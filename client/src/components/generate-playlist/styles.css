@@ -1,0 +1,27 @@
+.artist-playlist-form { /*evaluate*/
+  display: flex;
+  flex-direction: column;
+  padding: 0px 5px;
+}
+
+#content-container {
+  display: flex;
+  padding: 15px 0px 0px 220px;
+}
+
+.button-container { /*evaluate*/
+  display: flex;
+}
+
+.genre-list-item {
+  padding: 2px 0px 2px 4px;
+}
+
+.genre-list-item:hover{
+  background-color: mediumseagreen;
+  color: white;
+}
+
+hr {
+  margin: 0px;
+}
