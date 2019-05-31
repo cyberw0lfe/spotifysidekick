@@ -18,8 +18,7 @@ app.use('/api', require('./routes/authRoutes'))
 app.use('/api', require('./routes/profile'))
 app.use('/api', require('./routes/search'))
 app.use('/api', require('./routes/topGenres'))
-app.use('/api', require('./routes/genrePlaylistRoutes'))
-app.use('/api', require('./routes/artistPlaylist'))
+app.use('/api', require('./routes/generatePlaylistRoutes'))
 app.use('/api', require('./routes/log'))
 
 app.get('*', (req, res) => {

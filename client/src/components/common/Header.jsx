@@ -16,8 +16,6 @@ export default () => (
     <a href='/profile'>Profile</a>
     <a href='/search'>Search</a>
     <a href='/discover'>Discover</a>
-    <a href='/genre-playlist'>Genre Playlist</a>
-    <a href='/artist-playlist'>Artist Playlist</a>
     <a href='/generate-playlist'>Generate Playlist</a>
     {authHeader}
   </div>
