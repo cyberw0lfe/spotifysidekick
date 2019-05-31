@@ -6,23 +6,23 @@ import { generatePlaylist } from '../../utils/fetch'
 import './styles.css'
 
 const validateInput = (selectedGenres, name, limit) => {
-  let success = true
   if(selectedGenres.length === 0 || selectedGenres.length > 5) {
     alert('Select 1-5 seed genres')
-    success = false
+    return false
   }
   if(limit < 1 || limit > 100) {
     alert('Select a limit between 1-100 tracks')
-    success = false
+    return false
   }
   if(name.length < 1) {
     alert('Enter a non-empty name for the playlist')
-    success = false
+    return false
   }
-  return success
+  return true
 }
 
-const onSubmit = async ({seeds, playlistType, setPlaylist}) => {
+const onSubmit = async (event, {seeds, playlistType, setPlaylist}) => {
+  event.preventDefault()
   const limit = document.getElementById('limit').value
   const name = document.getElementById('playlist-name').value
   const saveToggle = document.getElementById('save-toggle')
@@ -35,7 +35,7 @@ const onSubmit = async ({seeds, playlistType, setPlaylist}) => {
 
 export default (props) => (
   <Panel content={
-    <form className='artist-playlist-form' onSubmit={() => {onSubmit(props)}}>
+    <form className='artist-playlist-form' onSubmit={(event) => {onSubmit(event, props)}}>
       <div>
         <input type='radio' name='type' value='genre' onClick={() => props.setPlaylistType('genre')} />Genre
         <input type='radio' name='type' value='artist' onClick={() => props.setPlaylistType('artist')} />Artist

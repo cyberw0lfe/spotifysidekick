@@ -3,7 +3,16 @@ import PlaylistInfoPanel from './PlaylistInfoPanel'
 import SeedGenres from './SeedGenres'
 import SeedArtistForm from './SeedArtistForm'
 import SelectedSeeds from './SelectedSeeds'
+import Card from '../common/Card'
 import './styles.css'
+
+const renderPlaylist = (playlist) => {
+  if(playlist && playlist.length > 0) {
+    return playlist.map(track => {
+      return <div key={track.name+track.artists[0].name}>{track.name} - {track.artists[0].name}</div>
+    })
+  }
+}
 
 export default () => {
   const [playlistType, setPlaylistType] = useState('')
@@ -20,6 +29,7 @@ export default () => {
           : <SeedGenres seeds={seeds} setSeeds={setSeeds} />
         }
         <SelectedSeeds seeds={seeds} setSeeds={setSeeds} />
+        <Card title='Playlist' content={renderPlaylist(playlist)} />
       </div>
     </div>
   )

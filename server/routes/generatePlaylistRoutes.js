@@ -4,6 +4,34 @@ const { withAuth } = require('../auth/middleware')
 const spotifyApi = require('../spotifyClient.js')
 const { getTrackUris } = require('../utils')
 
+const getOptions = async ({playlistType, limit, seeds}) => {
+  if(playlistType === 'genre') {
+    return {
+      'seed_genres': seeds,
+      limit
+    }
+  } else {
+    const artistIds = await getArtistIds(seeds)
+    return Promise.all(artistIds).then(ids => {
+      return {
+        'seed_artists': ids,
+        limit
+      }
+    })
+  }
+}
+
+const getArtistIds = (seedArtists) => {
+  return Promise.all(seedArtists.map(async seedArtist => {
+    try {
+      const response = await spotifyApi.searchArtists(seedArtist)
+      const artist = await response.body.artists.items[0]
+      return artist.id
+    } catch(err) {
+      console.log('getArtistIds ERROR: ', err)
+    }
+  })).then(ids => ids)
+}
 
 router.get('/genre-seeds', withAuth, async (req, res) => {
   try {
@@ -13,19 +41,16 @@ router.get('/genre-seeds', withAuth, async (req, res) => {
     const genres = data.body
     res.send(genres)
   } catch(err) {
-    console.log(`/get-genre-seeds ERROR: ${err}`)
+    console.log(`/genre-seeds ERROR: ${err}`)
     if(err.statusCode) res.sendStatus(err.statusCode)
     else res.sendStatus(500)
   }
 })
 
-router.post('/generate-genre-playlist', withAuth, async (req, res) => {
+router.post('/generate-playlist', withAuth, async (req, res) => {
   try {
     spotifyApi.setAccessToken(req.apiToken)
-    const options = {
-      'seed_genres': req.body.genres,
-      limit: req.body.limit
-    }
+    const options = await getOptions(req.body)
     const data = await spotifyApi.getRecommendations(options)
     const uris = getTrackUris(data.body.tracks)
 
@@ -40,17 +65,7 @@ router.post('/generate-genre-playlist', withAuth, async (req, res) => {
     spotifyApi.setAccessToken('')
     res.status(statusCode).send(data.body.tracks)
   } catch(err) {
-    console.log(`/generate-genre-playlist ERROR: ${err}`)
-    if(err.statusCode) res.sendStatus(err.statusCode)
-    else res.sendStatus(500)
-  }
-})
-
-router.post('/generate-playlist', withAuth, async (req, res) => {
-  try {
-
-  } catch(err) {
-    console.log(`/generate-genre-playlist ERROR: ${err}`)
+    console.log(`/generate-playlist ERROR: ${err}`)
     if(err.statusCode) res.sendStatus(err.statusCode)
     else res.sendStatus(500)
   }
