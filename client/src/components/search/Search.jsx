@@ -42,3 +42,22 @@ export default () => {
     </div>
   )
 }
+
+const refactor = () => {
+  const [state, setState] = useState({
+    showResult: {
+      tracks: false,
+      artists: false,
+      albums: false,
+      playlists: false
+    },
+    result: null
+  })
+
+  return (
+    <div id='playlist-container' style={{display: 'flex'}}>
+      <SearchForm state={state} setState={setState} />
+      {state.showResult ? renderResults(state.result, state.showResult) : <div/>}
+    </div>
+  )
+}

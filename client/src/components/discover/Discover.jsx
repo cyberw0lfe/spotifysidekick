@@ -16,19 +16,17 @@ const style = {
 }
 
 export default () => {
-  const [loading, setLoading] = useState(true)
-  const [topGenres, setTopGenres] = useState()
+  const [topGenres, setTopGenres] = useState([])
 
   useEffect(() => {
     getTopGenres()
       .then(genres => {
         setTopGenres(genres)
-        setLoading(false)
       })
   }, [])
 
   const title = 'Your Top Genres'
-  const content = loading ? <div>Loading...</div> : renderGenres(topGenres) 
+  const content = topGenres.length <= 0 ? <div>Loading...</div> : renderGenres(topGenres) 
   return (
     <Card title={title} content={content} style={style} />
   )
