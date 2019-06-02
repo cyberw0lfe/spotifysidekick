@@ -14,24 +14,20 @@ const getSearchTypes = () => {
   return types
 }
 
-const search = async (event, setShowResult, setSearchResult) => {
-  setShowResult({
-    tracks: false,
-    artists: false,
-    albums: false,
-    playlists: false
-  })
+const search = async (event, setState) => {
   event.preventDefault()
   const query = document.getElementById('query').value
   const types = getSearchTypes()
   const limit = document.getElementById('limit').value
   const result = await executeSearch(query, types, limit)
-  setSearchResult(result)
-  setShowResult({
-    tracks: types.includes('track') ? true : false,
-    artists: types.includes('artist') ? true : false,
-    albums: types.includes('album') ? true : false,
-    playlists: types.includes('playlist') ? true : false
+  setState({
+    showResult: {
+      tracks: types.includes('track') ? true : false,
+      artists: types.includes('artist') ? true : false,
+      albums: types.includes('album') ? true : false,
+      playlists: types.includes('playlist') ? true : false
+    },
+    result
   })
 }
 
@@ -68,9 +64,9 @@ const renderToggles = (
 )
 
 
-export default (props) => (
+export default ({ setState }) => (
   <Panel style={styles.paper} content={
-    <form style={styles.form} onSubmit={(event) => search(event, props.setState.setShowResult, props.setState.setSearchResult)}>
+    <form style={styles.form} onSubmit={(event) => search(event, setState)}>
       <Input type='number' id='limit' placeholder='result limit' style={styles.margin}/>
       <Input type='text' id='query' placeholder='search' style={styles.margin} />
       {renderToggles}
