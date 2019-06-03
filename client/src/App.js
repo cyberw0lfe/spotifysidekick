@@ -14,7 +14,7 @@ const Playground = lazy(() => import('./components/common/Playground'))
 export default () => (
   <div className='app'>
     <Header />
-    <div id='body-container' style={{padding: '50px 0px 0px 0px'}}>
+    <div style={{padding: '50px 0px 0px 0px'}}>
       <Router>
         <Suspense fallback={<div>Loading...</div>}>
           <Route exact path='/' component={Login} />
@@ -22,7 +22,7 @@ export default () => (
           <Route path='/profile' component={Profile} />
           <Route path='/search' component={Search} />
           <Route path='/discover' component={Discover} />
-          <Route path='/generate-playlist' component={GeneratePlaylist} />
+          <Route path='/generate' component={GeneratePlaylist} />
           <Route path='/playground' component={Playground} />
         </Suspense>
       </Router>

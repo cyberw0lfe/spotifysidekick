@@ -1,5 +1,5 @@
 import React from 'react'
-import Panel from '../common/FixedPanel'
+import Paper from '../common/Paper'
 import Input from '../common/Input'
 import Button from '../common/Button'
 import { generatePlaylist } from '../../utils/fetch'
@@ -36,19 +36,17 @@ const onSubmit = async (event, state, setState) => {
   }
 }
 
-export default ({state, setState}) => (
-  <Panel content={
-    <form className='artist-playlist-form' onSubmit={(event) => {onSubmit(event, state, setState)}}>
-      <div>
-        <input type='radio' name='type' value='genre' onClick={() => setState({...state, playlistType: 'genre'})} />Genre
-        <input type='radio' name='type' value='artist' onClick={() => setState({...state, playlistType: 'artist'})} />Artist
-      </div>
-      <Input type='number' placeholder='track count' id='limit' />
-      <Input type='text' placeholder='playlist name' id='playlist-name' />
-      <div>
-        <Input type='checkbox' id='save-toggle' /> Save Playlist?
-      </div>
-      <Button text='Submit' />
-    </form>
-  } />
+export default ({state, setState, className}) => (
+  <form className={className} onSubmit={(event) => {onSubmit(event, state, setState)}}>
+    <div>
+      <input type='radio' name='type' value='genre' onClick={() => setState({...state, playlistType: 'genre'})} />Genre
+      <input type='radio' name='type' value='artist' onClick={() => setState({...state, playlistType: 'artist'})} />Artist
+    </div>
+    <input type='number' placeholder='track count' id='limit' autoComplete='off'/>
+    <input type='text' placeholder='playlist name' id='playlist-name' autoComplete='off'/>
+    <div>
+      <input type='checkbox' id='save-toggle' /> Save Playlist?
+    </div>
+    <Button text='Submit' />
+  </form>
 )

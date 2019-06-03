@@ -5,6 +5,7 @@ import SeedArtistForm from './SeedArtistForm'
 import SelectedSeeds from './SelectedSeeds'
 import Card from '../common/Card'
 import './styles.css'
+import '../common/responsive.css'
 
 const renderPlaylist = (playlist) => {
   if(playlist && playlist.length > 0) {
@@ -22,9 +23,9 @@ export default () => {
   })
 
   return (
-    <div>
-      <FormPanel state={state} setState={setState} />
-      <div className='content-container'>
+    <div className='row'>
+      <FormPanel state={state} setState={setState} className='col-2 col-s-2' />
+      <div className='col-10 col-s-10' >
         {
           state.playlistType === 'artist'
           ? <SeedArtistForm state={state} setState={setState} />

@@ -9,11 +9,10 @@
 }
 
 #header a {
-  float: left;
   color: white;
   text-align: center;
   align-items: center;
-  padding: 12px;
+  padding: 12px 0px;
   text-decoration: none;
   font-size: 18px;
   line-height: 15px;
