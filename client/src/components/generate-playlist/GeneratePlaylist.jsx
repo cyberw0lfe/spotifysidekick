@@ -15,21 +15,23 @@ const renderPlaylist = (playlist) => {
 }
 
 export default () => {
-  const [playlistType, setPlaylistType] = useState('')
-  const [seeds, setSeeds] = useState([])
-  const [playlist, setPlaylist] = useState([])
-  
+  const [state, setState] = useState({
+    playlistType: '',
+    seeds: [],
+    playlist: [],
+  })
+
   return (
     <div>
-      <FormPanel playlistType={playlistType} setPlaylistType={setPlaylistType} seeds={seeds} setPlaylist={setPlaylist}/>
-      <div id='content-container'>
+      <FormPanel state={state} setState={setState} />
+      <div className='content-container'>
         {
-          playlistType === 'artist'
-          ? <SeedArtistForm seeds={seeds} setSeeds={setSeeds} />
-          : <SeedGenres seeds={seeds} setSeeds={setSeeds} />
+          state.playlistType === 'artist'
+          ? <SeedArtistForm state={state} setState={setState} />
+          : <SeedGenres state={state} setState={setState} />
         }
-        <SelectedSeeds seeds={seeds} setSeeds={setSeeds} />
-        <Card title='Playlist' content={renderPlaylist(playlist)} />
+        <SelectedSeeds state={state} setState={setState} />
+        <Card title='Playlist' content={renderPlaylist(state.playlist)} />
       </div>
     </div>
   )

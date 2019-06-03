@@ -21,24 +21,27 @@ const validateInput = (selectedGenres, name, limit) => {
   return true
 }
 
-const onSubmit = async (event, {seeds, playlistType, setPlaylist}) => {
+const onSubmit = async (event, state, setState) => {
   event.preventDefault()
   const limit = document.getElementById('limit').value
   const name = document.getElementById('playlist-name').value
   const saveToggle = document.getElementById('save-toggle')
 
-  if(validateInput(seeds, name, limit)){
-    const playlist = await generatePlaylist(seeds, playlistType, name, limit, saveToggle.checked)
-    setPlaylist(playlist)
+  if(validateInput(state.seeds, name, limit)){
+    const playlist = await generatePlaylist(state.seeds, state.playlistType, name, limit, saveToggle.checked)
+    setState({
+      ...state,
+      playlist
+    })
   }
 }
 
-export default (props) => (
+export default ({state, setState}) => (
   <Panel content={
-    <form className='artist-playlist-form' onSubmit={(event) => {onSubmit(event, props)}}>
+    <form className='artist-playlist-form' onSubmit={(event) => {onSubmit(event, state, setState)}}>
       <div>
-        <input type='radio' name='type' value='genre' onClick={() => props.setPlaylistType('genre')} />Genre
-        <input type='radio' name='type' value='artist' onClick={() => props.setPlaylistType('artist')} />Artist
+        <input type='radio' name='type' value='genre' onClick={() => setState({...state, playlistType: 'genre'})} />Genre
+        <input type='radio' name='type' value='artist' onClick={() => setState({...state, playlistType: 'artist'})} />Artist
       </div>
       <Input type='number' placeholder='track count' id='limit' />
       <Input type='text' placeholder='playlist name' id='playlist-name' />

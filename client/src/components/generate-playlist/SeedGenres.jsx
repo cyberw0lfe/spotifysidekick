@@ -3,21 +3,24 @@ import Card from '../common/Card'
 import { getGenreSeeds } from '../../utils/fetch'
 import './styles.css'
 
-const genreClick = (genre, seeds, setSeeds) => {
-  if(seeds.length < 5) {
-    setSeeds([...seeds, genre])
+const genreClick = (genre, state, setState) => {
+  if(state.seeds.length < 5) {
+    setState({
+      ...state,
+      seeds: [...state.seeds, genre]
+    })
   } else {
     alert('Select up to 5 seed genres')
   }
 }
 
-const renderSeedGenres = (genres, seeds, setSeeds) => (
+const renderSeedGenres = (genres, state, setState) => (
   genres.map(genre => {
-    return <div onClick={() => {genreClick(genre, seeds, setSeeds)}} key={genre} className='genre-list-item'>{genre}</div>
+    return <div onClick={() => {genreClick(genre, state, setState)}} key={genre} className='genre-list-item'>{genre}</div>
   })
 )
 
-export default (props) => {
+export default ({state, setState}) => {
   const [loading, setLoading] = useState(true)
   const [genres, setGenres] = useState()
 
@@ -31,6 +34,6 @@ export default (props) => {
 
   if(loading) return <div>Loading...</div>
   return (
-    <Card title={'Seed Genres'} content={renderSeedGenres(genres, props.seeds, props.setSeeds)} />
+    <Card title={'Seed Genres'} content={renderSeedGenres(genres, state, setState)} />
   )
 }

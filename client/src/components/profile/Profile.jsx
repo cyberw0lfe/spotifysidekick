@@ -21,20 +21,18 @@ const style = {
 }
 
 export default () => {
-  const [loading, setLoading] = useState(true)
-  const [profile, setProfile] = useState(null)
+  const [profile, setProfile] = useState(false)
   
   useEffect(() => {
     fetchProfile()
       .then(fetchedProfile => {
         setProfile(fetchedProfile)
-        setLoading(false)
       })
   }, [])
 
   return (
     <div style={{textAlign: 'center'}}>
-      {loading ? <div>Loading...</div> : <Paper content={renderProfile(profile)} style={style} />}
+      {profile ? <Paper content={renderProfile(profile)} style={style} /> : <div>Loading...</div>}
     </div>
   )
 }
