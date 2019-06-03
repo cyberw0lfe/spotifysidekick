@@ -1,22 +1,25 @@
 import React from 'react'
 import Card from '../common/Card'
 
-const unselectGenre = (genre, seeds, setSeeds) => {
-  const newState = [...seeds]
-  newState.splice(newState.indexOf(genre), 1)
-  setSeeds(newState)
+const unselectGenre = (seed, state, setState) => {
+  const newSeeds = state.seeds
+  newSeeds.splice(newSeeds.indexOf(seed), 1)
+  setState({
+    ...state,
+    seeds: newSeeds
+  })
 }
 
-const renderSeeds = (seeds, setSeeds) => {
-  if(seeds.length > 0) {
-    return seeds.map(seed => {
-      return <div key={seed} className='genre-list-item' onClick={() => unselectGenre(seed, seeds, setSeeds)}>{seed}</div>
+const renderSeeds = (state, setState) => {
+  if(state.seeds.length > 0) {
+    return state.seeds.map(seed => {
+      return <div key={seed} className='genre-list-item' onClick={() => unselectGenre(seed, state, setState)}>{seed}</div>
     })
   }
 }
 
-export default (props) => {
+export default ({state, setState}) => {
   return (
-    <Card title='Seeds' content={renderSeeds(props.seeds, props.setSeeds)} />
+    <Card title='Seeds' content={renderSeeds(state, setState)} />
   )
 }
