@@ -27,18 +27,20 @@ const renderResults = (results, showResult) => (
 )
 
 export default () => {
-  const [showResult, setShowResult] = useState({
-    tracks: false,
-    artists: false,
-    albums: false,
-    playlists: false
+  const [state, setState] = useState({
+    showResult: {
+      tracks: false,
+      artists: false,
+      albums: false,
+      playlists: false
+    },
+    result: null
   })
-  const [searchResult, setSearchResult] = useState(null)
-  
+
   return (
     <div id='playlist-container' style={{display: 'flex'}}>
-      <SearchForm setState={{setShowResult, setSearchResult}}/>
-      {showResult ? renderResults(searchResult, showResult) : <div/>}
+      <SearchForm state={state} setState={setState} />
+      {state.showResult ? renderResults(state.result, state.showResult) : <div/>}
     </div>
   )
 }

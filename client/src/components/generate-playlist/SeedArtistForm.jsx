@@ -13,20 +13,23 @@ const styles = {
   },
 }
 
-const addArtist = (event, seeds, setSeeds) => {
+const addArtist = (event, state, setState) => {
   event.preventDefault()
   const seed = document.getElementById('seed-artist').value
-  setSeeds([...seeds, seed])
+  setState({
+    ...state,
+    seeds: [...state.seeds, seed]
+  })
   document.getElementById('seed-artist').value = ''
 }
 
-export default (props) => (
+export default ({state, setState}) => (
   <Paper content={
-    <form className='artist-playlist-form' onSubmit={(event) => addArtist(event, props.seeds, props.setSeeds)}>
+    <form className='artist-playlist-form' onSubmit={(event) => addArtist(event, state, setState)}>
       <Input style={styles.artistInput} type='text' placeholder='seed artist' id='seed-artist' />
       <div id='button-container'>
         <Button style={styles.addArtistButton} text='Add' />
-        <Button style={styles.addArtistButton} text='Clear' onClick={() => props.setSeeds([])}/>
+        <Button style={styles.addArtistButton} text='Clear' onClick={() => setState({...state, seeds: []})}/>
       </div>
     </form>
   } />
