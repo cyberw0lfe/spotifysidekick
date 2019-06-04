@@ -37,16 +37,18 @@ const onSubmit = async (event, state, setState) => {
 }
 
 export default ({state, setState, className}) => (
-  <form className={className} onSubmit={(event) => {onSubmit(event, state, setState)}}>
-    <div>
-      <input type='radio' name='type' value='genre' onClick={() => setState({...state, playlistType: 'genre'})} />Genre
-      <input type='radio' name='type' value='artist' onClick={() => setState({...state, playlistType: 'artist'})} />Artist
-    </div>
-    <input type='number' placeholder='track count' id='limit' autoComplete='off'/>
-    <input type='text' placeholder='playlist name' id='playlist-name' autoComplete='off'/>
-    <div>
-      <input type='checkbox' id='save-toggle' /> Save Playlist?
-    </div>
-    <Button text='Submit' />
-  </form>
+  <Paper className={className} content={
+    <form onSubmit={(event) => {onSubmit(event, state, setState)}}>
+      <div>
+        <input type='radio' name='type' value='genre' onClick={() => setState({...state, playlistType: 'genre'})} />Genre
+        <input type='radio' name='type' value='artist' onClick={() => setState({...state, playlistType: 'artist'})} />Artist
+      </div>
+      <Input type='number' placeholder='track count' id='limit' autoComplete='off'/>
+      <Input type='text' placeholder='playlist name' id='playlist-name' autoComplete='off'/>
+      <div>
+        <Input type='checkbox' id='save-toggle' /> Save Playlist?
+      </div>
+      <Button text='Submit' />
+    </form>
+  } />
 )

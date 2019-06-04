@@ -6,6 +6,7 @@ import './styles.css'
 export default (props) => (
   <button 
     id='button'
+    className={props.className}
     style={props.style}
     onClick={props.onClick}
   >

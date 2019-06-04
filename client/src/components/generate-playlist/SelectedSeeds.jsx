@@ -18,8 +18,8 @@ const renderSeeds = (state, setState) => {
   }
 }
 
-export default ({state, setState}) => {
+export default ({state, setState, className}) => {
   return (
-    <Card title='Seeds' content={renderSeeds(state, setState)} />
+    <Card className={className} title='Seeds' content={renderSeeds(state, setState)} />
   )
 }
