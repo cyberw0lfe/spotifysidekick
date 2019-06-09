@@ -15,7 +15,7 @@ const style = {
   width: 'fit-content'
 }
 
-export default () => {
+export default ({className}) => {
   const [topGenres, setTopGenres] = useState([])
 
   useEffect(() => {
@@ -28,6 +28,6 @@ export default () => {
   const title = 'Your Top Genres'
   const content = topGenres.length <= 0 ? <div>Loading...</div> : renderGenres(topGenres) 
   return (
-    <Card title={title} content={content} style={style} />
+    <Card className={className} title={title} content={content} style={style} />
   )
 }

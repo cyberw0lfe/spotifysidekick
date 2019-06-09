@@ -21,7 +21,6 @@ export default () => (
           <Route path='/token' component={Token} />
           <Route path='/profile' component={Profile} />
           <Route path='/search' component={Search} />
-          <Route path='/discover' component={Discover} />
           <Route path='/generate' component={GeneratePlaylist} />
           <Route path='/playground' component={Playground} />
         </Suspense>

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import TopGenres from './TopGenres'
 import Paper from '../common/Paper'
 import { fetchProfile } from '../../utils/fetch'
 import './styles.css'
+import '../common/responsive.css'
 
 const renderProfile = (profile) => (
   <div>
@@ -16,8 +18,8 @@ const renderProfile = (profile) => (
 )
 
 const style = {
-  margin: '20px', 
-  width: 'min-content'
+  // margin: '20px 0px 20px 10px',
+  // width: 'min-content'
 }
 
 export default () => {
@@ -31,8 +33,14 @@ export default () => {
   }, [])
 
   return (
-    <div style={{textAlign: 'center'}}>
-      {profile ? <Paper content={renderProfile(profile)} style={style} /> : <div>Loading...</div>}
+    <div className='row'>
+      <div style={{textAlign: 'center'}}>
+        {
+          profile 
+            ? <Paper className='col-4 col-s-12' content={renderProfile(profile)} style={style} />
+            : <div>Loading...</div>}
+      </div>
+      <TopGenres className='col-8 col-s-12'/>
     </div>
   )
 }
