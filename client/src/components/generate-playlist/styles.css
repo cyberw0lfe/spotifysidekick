@@ -1,4 +1,4 @@
-.artist-playlist-form { /*evaluate*/
+.artist-playlist-form {
   display: flex;
   flex-direction: column;
   padding: 0px 5px;
@@ -9,8 +9,16 @@
   padding: 15px 0px 0px 220px;
 }
 
-.button-container { /*evaluate*/
+.button-container {
   display: flex;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.vertical-margin {
+  margin: 5px 0px;
 }
 
 .genre-list-item {

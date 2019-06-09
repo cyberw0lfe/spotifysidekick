@@ -43,9 +43,9 @@ export default ({state, setState, className}) => (
         <input type='radio' name='type' value='genre' onClick={() => setState({...state, playlistType: 'genre'})} />Genre
         <input type='radio' name='type' value='artist' onClick={() => setState({...state, playlistType: 'artist'})} />Artist
       </div>
-      <Input type='number' placeholder='track count' id='limit' autoComplete='off'/>
-      <Input type='text' placeholder='playlist name' id='playlist-name' autoComplete='off'/>
-      <div>
+      <Input className='full-width' type='number' placeholder='track count' id='limit' autoComplete='off'/>
+      <Input className='full-width' type='text' placeholder='playlist name' id='playlist-name' autoComplete='off'/>
+      <div className='vertical-margin'>
         <Input type='checkbox' id='save-toggle' /> Save Playlist?
       </div>
       <Button text='Submit' />
