@@ -17,11 +17,6 @@ const renderProfile = (profile) => (
   </div>
 )
 
-const style = {
-  // margin: '20px 0px 20px 10px',
-  // width: 'min-content'
-}
-
 export default () => {
   const [profile, setProfile] = useState(false)
   
@@ -37,10 +32,10 @@ export default () => {
       <div style={{textAlign: 'center'}}>
         {
           profile 
-            ? <Paper className='col-4 col-s-12' content={renderProfile(profile)} style={style} />
+            ? <Paper className='col-4 col-s-6' content={renderProfile(profile)}/>
             : <div>Loading...</div>}
       </div>
-      <TopGenres className='col-8 col-s-12'/>
+      <TopGenres className='col-8 col-s-6'/>
     </div>
   )
 }
