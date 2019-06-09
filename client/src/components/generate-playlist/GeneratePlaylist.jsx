@@ -24,15 +24,21 @@ export default () => {
 
   return (
     <div className='row'>
-      <FormPanel state={state} setState={setState} className='col-3 col-s-6'/>
-      <div>
+      <div className='col-3 col-s-6'>
+        <FormPanel state={state} setState={setState} />
+      </div>
+      <div className='col-3 col-s-6'>
         {
           state.playlistType === 'artist'
-          ? <SeedArtistForm state={state} setState={setState} className='col-3 col-s-6'/>
-          : <SeedGenres state={state} setState={setState} className='col-3 col-s-6'/>
+          ? <SeedArtistForm state={state} setState={setState} />
+          : <SeedGenres state={state} setState={setState} />
         }
-        <SelectedSeeds state={state} setState={setState} className='col-3 col-s-6'/>
-        <Card title='Playlist' content={renderPlaylist(state.playlist)} className='col-3 col-s-6'/>
+      </div>
+      <div className='col-3 col-s-6'>
+        <SelectedSeeds state={state} setState={setState} />
+      </div>
+      <div className='col-3 col-s-6'>
+        <Card title='Playlist' content={renderPlaylist(state.playlist)} />
       </div>
     </div>
   )

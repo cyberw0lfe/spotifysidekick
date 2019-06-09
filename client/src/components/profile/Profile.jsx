@@ -29,13 +29,15 @@ export default () => {
 
   return (
     <div className='row'>
-      <div style={{textAlign: 'center'}}>
+      <div className='col-4 col-s-6' style={{textAlign: 'center'}}>
         {
           profile 
-            ? <Paper className='col-4 col-s-6' content={renderProfile(profile)}/>
+            ? <Paper content={renderProfile(profile)}/>
             : <div>Loading...</div>}
       </div>
-      <TopGenres className='col-8 col-s-6'/>
+      <div className='col-8 col-s-6'>
+        <TopGenres />
+      </div>
     </div>
   )
 }
