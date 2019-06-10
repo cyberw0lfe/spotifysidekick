@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import TopGenres from './TopGenres'
 import Paper from '../common/Paper'
 import { fetchProfile } from '../../utils/fetch'
 import './styles.css'
+import '../common/responsive.css'
 
 const renderProfile = (profile) => (
   <div>
@@ -15,11 +17,6 @@ const renderProfile = (profile) => (
   </div>
 )
 
-const style = {
-  margin: '20px', 
-  width: 'min-content'
-}
-
 export default () => {
   const [profile, setProfile] = useState(false)
   
@@ -31,8 +28,16 @@ export default () => {
   }, [])
 
   return (
-    <div style={{textAlign: 'center'}}>
-      {profile ? <Paper content={renderProfile(profile)} style={style} /> : <div>Loading...</div>}
+    <div className='row'>
+      <div className='col-4 col-s-6' style={{textAlign: 'center'}}>
+        {
+          profile 
+            ? <Paper content={renderProfile(profile)}/>
+            : <div>Loading...</div>}
+      </div>
+      <div className='col-8 col-s-6'>
+        <TopGenres />
+      </div>
     </div>
   )
 }

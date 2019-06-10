@@ -1,6 +1,7 @@
 import React from 'react'
 import cookie from 'js-cookie'
 import './styles.css'
+import './responsive.css'
 import { logout } from '../../utils/fetch'
 
 const logoutUser = async () => {
@@ -15,8 +16,7 @@ export default () => (
   <div id='header'>
     <a href='/profile'>Profile</a>
     <a href='/search'>Search</a>
-    <a href='/discover'>Discover</a>
-    <a href='/generate-playlist'>Generate Playlist</a>
+    <a href='/generate'>Generate</a>
     {authHeader}
   </div>
 )
