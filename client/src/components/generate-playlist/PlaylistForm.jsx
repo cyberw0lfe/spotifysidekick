@@ -1,5 +1,5 @@
 import React from 'react'
-import Panel from '../common/FixedPanel'
+import Paper from '../common/Paper'
 import Input from '../common/Input'
 import Button from '../common/Button'
 import { generatePlaylist } from '../../utils/fetch'
@@ -36,16 +36,16 @@ const onSubmit = async (event, state, setState) => {
   }
 }
 
-export default ({state, setState}) => (
-  <Panel content={
-    <form className='artist-playlist-form' onSubmit={(event) => {onSubmit(event, state, setState)}}>
+export default ({state, setState, className}) => (
+  <Paper className={className} content={
+    <form onSubmit={(event) => {onSubmit(event, state, setState)}}>
       <div>
         <input type='radio' name='type' value='genre' onClick={() => setState({...state, playlistType: 'genre'})} />Genre
         <input type='radio' name='type' value='artist' onClick={() => setState({...state, playlistType: 'artist'})} />Artist
       </div>
-      <Input type='number' placeholder='track count' id='limit' />
-      <Input type='text' placeholder='playlist name' id='playlist-name' />
-      <div>
+      <Input className='full-width' type='number' placeholder='track count' id='limit' autoComplete='off'/>
+      <Input className='full-width' type='text' placeholder='playlist name' id='playlist-name' autoComplete='off'/>
+      <div className='vertical-margin'>
         <Input type='checkbox' id='save-toggle' /> Save Playlist?
       </div>
       <Button text='Submit' />

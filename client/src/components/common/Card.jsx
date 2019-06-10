@@ -12,7 +12,7 @@ const header = (title) => (
 
 export default (props) => {
   return (
-    <div id='card-container' style={props.style}>
+    <div id='card-container' style={props.style} className={props.className}>
       {props.title ? header(props.title) : <div/>}
       {props.content ? <div id='card-content'>{props.content}</div> : <div/>}
     </div>

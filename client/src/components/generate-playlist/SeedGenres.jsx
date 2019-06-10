@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Card from '../common/Card'
 import { getGenreSeeds } from '../../utils/fetch'
 import './styles.css'
+import '../common/responsive.css'
 
 const genreClick = (genre, state, setState) => {
   if(state.seeds.length < 5) {
@@ -20,7 +21,7 @@ const renderSeedGenres = (genres, state, setState) => (
   })
 )
 
-export default ({state, setState}) => {
+export default ({state, setState, className}) => {
   const [loading, setLoading] = useState(true)
   const [genres, setGenres] = useState()
 
@@ -34,6 +35,6 @@ export default ({state, setState}) => {
 
   if(loading) return <div>Loading...</div>
   return (
-    <Card title={'Seed Genres'} content={renderSeedGenres(genres, state, setState)} />
+    <Card className={className} title={'Seed Genres'} content={renderSeedGenres(genres, state, setState)} />
   )
 }

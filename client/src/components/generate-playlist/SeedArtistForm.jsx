@@ -3,16 +3,6 @@ import Input from '../common/Input'
 import Button from '../common/Button'
 import Paper from '../common/Paper'
 
-const styles = {
-  artistInput: {
-    margin: '5px',
-  },
-  addArtistButton: {
-    width: '45%',
-    margin: '5px'
-  },
-}
-
 const addArtist = (event, state, setState) => {
   event.preventDefault()
   const seed = document.getElementById('seed-artist').value
@@ -23,13 +13,13 @@ const addArtist = (event, state, setState) => {
   document.getElementById('seed-artist').value = ''
 }
 
-export default ({state, setState}) => (
-  <Paper content={
+export default ({state, setState, className}) => (
+  <Paper className={className} content={
     <form className='artist-playlist-form' onSubmit={(event) => addArtist(event, state, setState)}>
-      <Input style={styles.artistInput} type='text' placeholder='seed artist' id='seed-artist' />
+      <Input type='text' placeholder='seed artist' id='seed-artist' />
       <div id='button-container'>
-        <Button style={styles.addArtistButton} text='Add' />
-        <Button style={styles.addArtistButton} text='Clear' onClick={() => setState({...state, seeds: []})}/>
+        <Button text='Add' />
+        <Button text='Clear' onClick={() => setState({...state, seeds: []})}/>
       </div>
     </form>
   } />
