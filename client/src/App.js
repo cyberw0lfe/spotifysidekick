@@ -7,7 +7,6 @@ const Login = lazy(() => import('./components/login/Login'))
 const Token = lazy(() => import('./components/login/Token'))
 const Profile = lazy(() => import('./components/profile/Profile'))
 const Search = lazy(() => import('./components/search/Search'))
-const Discover = lazy(() => import('./components/discover/Discover'))
 const GeneratePlaylist = lazy(() => import('./components/generate-playlist/GeneratePlaylist'))
 const Playground = lazy(() => import('./components/common/Playground'))
 
