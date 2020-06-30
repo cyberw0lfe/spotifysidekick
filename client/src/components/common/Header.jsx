@@ -1,7 +1,7 @@
 import React from 'react'
 import cookie from 'js-cookie'
-import './styles.css'
-import './responsive.css'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 import { logout } from '../../utils/fetch'
 
 const logoutUser = async () => {
@@ -10,13 +10,19 @@ const logoutUser = async () => {
   cookie.remove('authorized')
 }
 
-const authHeader = (window.location.pathname === '/') ? <div/> : <a href='/' onClick={logoutUser}>Logout</a>
+const authHeader = (window.location.pathname === '/') ? <div/> : <Nav.Link href='/' onClick={logoutUser}>Logout</Nav.Link>
 
 export default () => (
-  <div id='header'>
-    <a href='/profile'>Profile</a>
-    <a href='/search'>Search</a>
-    <a href='/generate'>Generate</a>
-    {authHeader}
-  </div>
+  <Navbar collapseOnSelect expand='sm' fixed='top' bg='dark' variant='dark'>
+    <Navbar.Brand href='/profile'>Spotify Dashboard</Navbar.Brand>
+    <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+    <Navbar.Collapse id='responsive-navbar-nav'>
+      <Nav className='mr-auto'>
+        <Nav.Link href='/profile'>Profile</Nav.Link>
+        <Nav.Link href='/search'>Search</Nav.Link>
+        <Nav.Link href='/generate'>Generate</Nav.Link>
+        {authHeader}
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
 )
