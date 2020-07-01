@@ -1,5 +1,6 @@
 const { Timber } = require('@timberio/node')
-const logger = new Timber(process.env.TIMBER_API_KEY, process.env.TIMBER_SRC_ID)
+// const logger = new Timber(process.env.TIMBER_API_KEY, process.env.TIMBER_SRC_ID)
+const logger = () => {}
 
 const payloads = {
   login: {

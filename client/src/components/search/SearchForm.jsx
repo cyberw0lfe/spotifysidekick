@@ -1,9 +1,10 @@
 import React from 'react'
-import Input from '../common/Input'
-import Button from '../common/Button'
-import Panel from '../common/FixedPanel'
+import Card from 'react-bootstrap/Card'
+import Form from 'react-bootstrap/Form'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import { executeSearch } from '../../utils/fetch';
-import './styles.css'
 
 const getSearchTypes = () => {
   const types = []
@@ -16,9 +17,10 @@ const getSearchTypes = () => {
 
 const search = async (event, setState) => {
   event.preventDefault()
-  const query = document.getElementById('query').value
+  const query = document.getElementById('search').value
   const types = getSearchTypes()
-  const limit = document.getElementById('limit').value
+  let limit = document.getElementById('limit').value
+  if(limit < 1 || limit > 50) limit=50
   const result = await executeSearch(query, types, limit)
   setState({
     showResult: {
@@ -31,46 +33,24 @@ const search = async (event, setState) => {
   })
 }
 
-const styles = {
-  margin: {
-    margin: '5px 10px'
-  },
-  toggleContainer: {
-    display: 'inline-flex'
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  paper: {
-    height: '100vh',
-    width: '200px',
-    maxHeight: '100%',
-    position: 'fixed',
-  },
-}
-
-const renderToggles = (
-  <div style={styles.toggleContainer}>
-    <div style={styles.margin}>
-      <Input type='checkbox' id='track-checkbox' /> Track
-      <Input type='checkbox' id='artist-checkbox' /> Artist
-    </div>
-    <div style={styles.margin}>
-      <Input type='checkbox' id='album-checkbox' /> Album
-      <Input type='checkbox' id='playlist-checkbox' /> Playlist
-    </div>
-  </div>
-)
-
-
 export default ({ setState }) => (
-  <Panel style={styles.paper} content={
-    <form style={styles.form} onSubmit={(event) => search(event, setState)}>
-      <Input type='number' id='limit' placeholder='result limit' style={styles.margin}/>
-      <Input type='text' id='query' placeholder='search' style={styles.margin} />
-      {renderToggles}
-      <Button text='Submit' style={styles.margin} />
-    </form>
-  } />
+  <Card>
+    <Form  onSubmit={(event) => search(event, setState)}>
+      <Row>
+        <Col sm={8} md={8} lg={8}>
+          <Form.Control id='search' type='text' placeholder='search' autoComplete='off' />
+          <Form.Control id='limit' type='number' placeholder='result limit (1-50)' autoComplete='off' />
+        </Col>
+        <Col sm={4} md={4} lg={4}>
+          <Form.Check type='switch' id='track-checkbox' label='Tracks' />
+          <Form.Check type='switch' id='artist-checkbox' label='Artists' />
+          <Form.Check type='switch' id='album-checkbox' label='Albums' />
+          <Form.Check type='switch' id='playlist-checkbox' label='Playlists' />
+        </Col>
+      </Row>
+      <Row style={{padding: '0px 15px'}}>
+        <Button variant='primary' type='submit' block>Submit</Button>
+      </Row>
+    </Form>
+  </Card>
 )

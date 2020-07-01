@@ -92,7 +92,7 @@ const getGenreSeeds = async () => {
   }
 }
 
-const generatePlaylist = async (seeds, playlistType, name, limit, save) => {
+const generatePlaylist = async (seeds, playlistType, name, limit, save, advancedOptions) => {
   try {
     const response = await fetch('/api/generate-playlist', {
       method: 'POST',
@@ -100,7 +100,7 @@ const generatePlaylist = async (seeds, playlistType, name, limit, save) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({seeds, playlistType, name, limit, save})
+      body: JSON.stringify({seeds, playlistType, name, limit, save, advancedOptions})
     })
     if(response.status === 401) window.location.replace('/')
     return await response.json()

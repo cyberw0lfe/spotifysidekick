@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import Card from '../common/Card'
-import { getTopGenres } from '../../utils/fetch';
-import './styles.css'
+import Spinner from '../common/Spinner'
+import Card from 'react-bootstrap/Card'
+import Accordion from 'react-bootstrap/Accordion'
+import { getTopGenres } from '../../utils/fetch'
 
+const renderGenres = genres => (
+  <Accordion>
+    <Card>
+      <Accordion.Toggle as={Card.Header}eventKey="0">
+        Top Genres
+      </Accordion.Toggle>
+      <Accordion.Collapse eventKey="0">
+        <Card.Body>
+        {
+          genres.map(genre => <p key={genre}>{genre}</p>)
+        }
+        </Card.Body>
+      </Accordion.Collapse>
+    </Card>
+  </Accordion>
+)
 
-const renderGenres = (genres) => {
-  return genres.map(genre => {
-    return <div key={genre} className='top-genre'>{genre}</div>
-  })
-}
-
-export default ({className}) => {
+export default () => {
   const [topGenres, setTopGenres] = useState([])
 
   useEffect(() => {
@@ -20,9 +31,5 @@ export default ({className}) => {
       })
   }, [])
 
-  const title = 'Your Top Genres'
-  const content = topGenres.length <= 0 ? <div>Loading...</div> : renderGenres(topGenres) 
-  return (
-    <Card className={className} title={title} content={content} />
-  )
+  return topGenres.length <= 0 ? <Spinner /> : renderGenres(topGenres)
 }

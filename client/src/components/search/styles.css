@@ -1,13 +1,30 @@
-.search-types {
-  display: flex;
-  flex-direction: column;
+.card {
+  padding: 5px 0px;
 }
 
-#search-results {
-  display: inline;
-  margin: 0px 0px 0px 220px;
+.container {
+  margin-top: 20px;
+  max-width: max-content;
 }
 
-.result-card {
-  margin: 10px 0px;
+.row {
+  margin: 5px 0px;
+}
+
+.accordion {
+  margin: 5px;
+}
+
+.list-group {
+  max-height: 500px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.form-control {
+  margin: 5px 0px 20px 0px;
+}
+
+.custom-control {
+  margin: 5px 0px;
 }

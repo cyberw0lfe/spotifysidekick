@@ -1,45 +1,37 @@
 import React, { useState } from 'react'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import PlaylistForm from './PlaylistForm'
-import SeedGenres from './SeedGenres'
-import SeedArtistForm from './SeedArtistForm'
-import SelectedSeeds from './SelectedSeeds'
-import Card from '../common/Card'
+import AdvancedOptions from './AdvancedOptions'
+import ContentTabs from './ContentTabs'
 import './styles.css'
-import '../common/responsive.css'
-
-const renderPlaylist = (playlist) => {
-  if(playlist && playlist.length > 0) {
-    return playlist.map(track => {
-      return <div key={track.name+track.artists[0].name}>{track.name} - {track.artists[0].name}</div>
-    })
-  }
-}
 
 export default () => {
   const [state, setState] = useState({
-    playlistType: 'genre',
+    playlistType: 'artist',
+    activeTab: 'artist',
+    save: false,
+    advanced: false,
     seeds: [],
-    playlist: [],
+    playlist: []
   })
 
   return (
-    <div className='row'>
-      <div className='col-12 col-s-12'>
-        <PlaylistForm state={state} setState={setState} />
-      </div>
-      <div className='col-4 col-s-6'>
-        {
-          state.playlistType === 'artist'
-          ? <SeedArtistForm state={state} setState={setState} />
-          : <SeedGenres state={state} setState={setState} />
-        }
-      </div>
-      <div className='col-4 col-s-6'>
-        <SelectedSeeds state={state} setState={setState} />
-      </div>
-      <div className='col-4 col-s-12'>
-        <Card title='Playlist' content={renderPlaylist(state.playlist)} />
-      </div>
+    <div>
+      <Container>
+        <Row>
+          <Col>
+            <PlaylistForm state={state} setState={setState} />
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        { state.advanced && <AdvancedOptions state={state} setState={setState} /> }
+      </Container>
+      <Container>
+        <ContentTabs state={state} setState={setState} />
+      </Container>
     </div>
-  )
+  ) 
 }

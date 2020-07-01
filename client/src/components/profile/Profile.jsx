@@ -1,20 +1,38 @@
 import React, { useState, useEffect } from 'react'
+import Spinner from '../common/Spinner'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Jumbotron from 'react-bootstrap/Jumbotron'
+import Card from 'react-bootstrap/Card'
 import TopGenres from './TopGenres'
-import Paper from '../common/Paper'
 import { fetchProfile } from '../../utils/fetch'
-import './styles.css'
-import '../common/responsive.css'
 
-const renderProfile = (profile) => (
-  <div>
-    <img src={profile.imgUrl} alt='img'/>
-    <div className='profile-info'>
-      <a href={profile.url} className='profile-header'>{profile.name}</a>
+const renderWelcomeContent = name => (
+  <Jumbotron fluid>
+    <Container>
+      <h1>Welcome, {name}!</h1>
+      <p>
+        View your Spotify profile and information about your listening habits below
+      </p>
+    </Container>
+  </Jumbotron>
+)
+
+const renderProfile = profile => (
+  <Card style={{ width: '18rem' }}>
+    <Card.Img variant='top' src={profile.imgUrl} />
+    <Card.Body>
+      <Card.Title>{profile.name}</Card.Title>
+      <Card.Text>
       {profile.email}
-      <div/>
+      <br/>
       {profile.followers} followers
-    </div>
-  </div>
+      <br/>
+      </Card.Text>
+      <Card.Link href={profile.url}>Spotify Account</Card.Link>
+    </Card.Body>
+  </Card>
 )
 
 export default () => {
@@ -28,16 +46,29 @@ export default () => {
   }, [])
 
   return (
-    <div className='row'>
-      <div className='col-4 col-s-6' style={{textAlign: 'center'}}>
+    <div>
+      <div>
         {
-          profile 
-            ? <Paper content={renderProfile(profile)}/>
-            : <div>Loading...</div>}
+          profile.name
+            ? renderWelcomeContent(profile.name)
+            : <Spinner />
+        }
       </div>
-      <div className='col-8 col-s-6'>
-        <TopGenres />
-      </div>
+
+      <Container>
+        <Row>
+          <Col sm={12} md={6}>
+            {
+              profile
+                ? renderProfile(profile)
+                : <Spinner />
+            }
+          </Col>
+          <Col sm={12} md={6}>
+            <TopGenres />
+          </Col>
+        </Row>
+      </Container>
     </div>
   )
 }

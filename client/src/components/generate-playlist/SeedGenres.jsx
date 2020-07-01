@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from 'react'
-import Card from '../common/Card'
+import Card from 'react-bootstrap/Card'
+import ListGroup from 'react-bootstrap/ListGroup'
+import ListGroupItem from 'react-bootstrap/ListGroupItem'
 import { getGenreSeeds } from '../../utils/fetch'
 import './styles.css'
-import '../common/responsive.css'
 
 const genreClick = (genre, state, setState) => {
-  if(state.seeds.length < 5) {
+  if(state.seeds.includes(genre)) {
+    alert(`'${genre}' is already a seed`)
+  } else if (state.seeds.length > 5 && state.seeds.length < 1) {
+    alert('Select up to 5 seed genres')
+  } else {
     setState({
       ...state,
       seeds: [...state.seeds, genre]
     })
-  } else {
-    alert('Select up to 5 seed genres')
   }
 }
 
 const renderSeedGenres = (genres, state, setState) => (
   genres.map(genre => {
-    return <div onClick={() => {genreClick(genre, state, setState)}} key={genre} className='genre-list-item'>{genre}</div>
+    return <ListGroupItem onClick={() => {genreClick(genre, state, setState)}} key={genre} className='genre-list-item'>{genre}</ListGroupItem>
   })
 )
 
-export default ({state, setState, className}) => {
+export default ({state, setState}) => {
   const [loading, setLoading] = useState(true)
   const [genres, setGenres] = useState()
 
@@ -35,6 +38,11 @@ export default ({state, setState, className}) => {
 
   if(loading) return <div>Loading...</div>
   return (
-    <Card className={className} title={'Seed Genres'} content={renderSeedGenres(genres, state, setState)} />
+    <Card className='tab-card seed-container'>
+      <h5>Seed Genres</h5>
+      <ListGroup>
+        {renderSeedGenres(genres, state, setState)}
+      </ListGroup>
+    </Card>
   )
 }

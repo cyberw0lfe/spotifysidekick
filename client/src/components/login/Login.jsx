@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../common/Button'
+import Button from 'react-bootstrap/Button'
 import { getLoginUrl } from '../../utils/fetch';
  
 const clickHandler = async () => {
@@ -8,9 +8,10 @@ const clickHandler = async () => {
 }
 
 const style = {
-  margin: '20px'
+  margin: '20px 0px 0px 20px',
+  width: '40%'
 }
 
 export default () => (
-  <Button onClick={clickHandler} text='Login' style={style} />
+    <Button variant='primary' block style={style} onClick={clickHandler}>Login</Button>
 )

@@ -4,18 +4,20 @@ const { withAuth } = require('../auth/middleware')
 const spotifyApi = require('../spotifyClient.js')
 const { getTrackUris } = require('../utils')
 
-const getOptions = async ({playlistType, limit, seeds}) => {
+const getOptions = async ({playlistType, limit, seeds, advancedOptions}) => {
   if(playlistType === 'genre') {
     return {
       'seed_genres': seeds,
-      limit
+      limit,
+      ...advancedOptions
     }
   } else {
     const artistIds = await getArtistIds(seeds)
     return Promise.all(artistIds).then(ids => {
       return {
         'seed_artists': ids,
-        limit
+        limit,
+        ...advancedOptions
       }
     })
   }
