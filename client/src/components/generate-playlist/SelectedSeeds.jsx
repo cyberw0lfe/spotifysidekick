@@ -25,7 +25,7 @@ export default ({state, setState}) => {
   return (
     <Card className='tab-card'>
       <div className='seed-container'>
-        <h5>Selected Seeds</h5>
+        <h5>Playlist Seeds</h5>
         <ListGroup>
           { renderSeeds(state, setState) }
         </ListGroup>

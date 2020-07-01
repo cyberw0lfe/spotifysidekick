@@ -46,3 +46,9 @@
 .btn {
   margin: 10px 0px 0px 0px;
 }
+
+.advanced-option-label {
+  text-align: center;
+  padding: 0px 0px;
+  /* padding: 36px 0px; */
+}

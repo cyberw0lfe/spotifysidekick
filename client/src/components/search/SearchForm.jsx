@@ -20,7 +20,7 @@ const search = async (event, setState) => {
   const query = document.getElementById('search').value
   const types = getSearchTypes()
   let limit = document.getElementById('limit').value
-  if(limit < 1 || limit > 100) limit=50
+  if(limit < 1 || limit > 50) limit=50
   const result = await executeSearch(query, types, limit)
   setState({
     showResult: {
@@ -39,7 +39,7 @@ export default ({ setState }) => (
       <Row>
         <Col sm={8} md={8} lg={8}>
           <Form.Control id='search' type='text' placeholder='search' autoComplete='off' />
-          <Form.Control id='limit' type='number' placeholder='result limit (1-100)' autoComplete='off' />
+          <Form.Control id='limit' type='number' placeholder='result limit (1-50)' autoComplete='off' />
         </Col>
         <Col sm={4} md={4} lg={4}>
           <Form.Check type='switch' id='track-checkbox' label='Tracks' />
