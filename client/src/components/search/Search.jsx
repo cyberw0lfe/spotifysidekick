@@ -1,29 +1,31 @@
 import React, { useState } from 'react'
-import Card from '../common/Card'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
+import ListGroup from 'react-bootstrap/ListGroup'
+import ListGroupItem from 'react-bootstrap/ListGroupItem'
 import SearchForm from './SearchForm'
+import './styles.css'
 
-const styles = {
-  card: {
-    margin: '10px 10px',
-  },
-  result: {
-    padding: '2px 5px'
-  }
-}
+const renderTab = (resultType, results) => (
+  <Tab eventKey={resultType} title={resultType}>
+    <ListGroup>
+      {
+        results.map(result => <ListGroupItem key={result.id}>{result.name}</ListGroupItem>)
+      }
+    </ListGroup>
+  </Tab>
+)
 
-const getResults = (results) => {
-  return results.items.map(result => {
-    return <div style={styles.result}>{result.name}</div>
-  })
-}
-
-const renderResults = (results, showResult) => (
-  <div id='search-results'>
-    {showResult.tracks ? <Card style={styles.card} title='Tracks' content={getResults(results.tracks)} /> : <div/>}
-    {showResult.artists ? <Card style={styles.card} title='Artists' content={getResults(results.artists)} /> : <div/>}
-    {showResult.albums ? <Card style={styles.card} title='Albums' content={getResults(results.albums)} /> : <div/>}
-    {showResult.playlists ? <Card style={styles.card} title='Playlists' content={getResults(results.playlists)} /> : <div/>}
-  </div>
+const renderTabs = (results, showResult) => (
+  <Tabs id='results-tabs'>
+      { showResult.tracks && renderTab('Tracks', results.tracks.items) }
+      { showResult.artists && renderTab('Artists', results.artists.items) }
+      { showResult.albums && renderTab('Albums', results.albums.items) }
+      { showResult.playlists && renderTab('Playlists', results.playlists.items) }
+  </Tabs>
 )
 
 export default () => {
@@ -38,9 +40,17 @@ export default () => {
   })
 
   return (
-    <div id='playlist-container' style={{display: 'flex'}}>
-      <SearchForm state={state} setState={setState} />
-      {state.showResult ? renderResults(state.result, state.showResult) : <div/>}
+    <div>
+      <Container>
+        <Row>
+          <Col>
+            <SearchForm state={state} setState={setState} />
+          </Col>
+        </Row>
+      </Container>
+      <Container style={{maxWidth: '400px'}}>
+        { state.result ? renderTabs(state.result, state.showResult) : <div/> }
+      </Container>
     </div>
   )
 }

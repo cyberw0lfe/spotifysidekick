@@ -5,6 +5,7 @@ branches:
   only:
   - master
   - develop
+  - /snyk-*/
 deploy:
   provider: heroku
   api_key:

@@ -22,7 +22,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const loginEvent = payloads.login
     loginEvent.email = profile.email
-    logger.info(loginEvent)
+    // logger.info(loginEvent)
 
     spotifyApi.setAccessToken('')
     res.send(profile)

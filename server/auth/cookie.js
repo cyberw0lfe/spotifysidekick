@@ -19,7 +19,7 @@ const issueCookie = (spotifyId, apiToken) => {
   console.log(`Saved user: ${uuid}`)
   const saveJwtEvent = payloads.saveJwt
   saveJwtEvent.uuid = uuid
-  logger.info(saveJwtEvent)
+  // logger.info(saveJwtEvent)
   
   return token
 }
@@ -35,7 +35,7 @@ const invalidateCookie = (req, res, next) => {
         console.log(`Deleted user: ${decoded.uuid}`)
         const deleteJwtEvent = payloads.deleteJwt
         deleteJwtEvent.uuid = decoded.uuid
-        logger.info(deleteJwtEvent)
+        // logger.info(deleteJwtEvent)
       }
     })
   } else console.log('No cookie to invalidate')
