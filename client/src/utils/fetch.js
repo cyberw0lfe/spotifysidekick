@@ -62,9 +62,9 @@ const executeSearch = async (query, types, limit) => {
   return await response.json()
 }
 
-const getTopGenres = async () => {
+const getTopContent = async () => {
   try {
-    const response = await fetch('/api/top-genres', {
+    const response = await fetch('/api/top-content', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -115,7 +115,7 @@ export {
   logout,
   fetchProfile,
   executeSearch,
-  getTopGenres,
+  getTopContent,
   getGenreSeeds,
   generatePlaylist
 }

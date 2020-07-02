@@ -4,16 +4,27 @@ const { withAuth } = require('../auth/middleware')
 const spotifyApi = require('../spotifyClient.js')
 const { getGenresFromList } = require('../utils')
 
-router.get('/top-genres', withAuth, async (req, res) => {
+router.get('/top-content', withAuth, async (req, res) => {
   try {
-    spotifyApi.setAccessToken(req.apiToken)
-    const artistData = await spotifyApi.getMyTopArtists()
-    const data = artistData.body.items
-    const genres = getGenresFromList(data)
+    // TODO: add timerange option here
+    const options = {
+      limit: 50
+    }
 
+    spotifyApi.setAccessToken(req.apiToken)
+    const topArtists = await spotifyApi.getMyTopArtists(options)
+
+    spotifyApi.setAccessToken(req.apiToken)
+    const topTracks = await spotifyApi.getMyTopTracks(options)
+    
+    const genres = getGenresFromList(topArtists.body.items)
     spotifyApi.setAccessToken('')
-    const result = genres
-    res.send(result)
+    
+    res.send({
+      artists: topArtists.body.items,
+      tracks: topTracks.body.items,
+      genres
+    })
   } catch(err) {
     console.log(`/top-genres ERROR: ${err}`)
     if(err.statusCode) res.sendStatus(err.statusCode)

@@ -7,12 +7,12 @@
   max-width: max-content;
 }
 
-.accordion {
-  width: max-content;
-}
-
 .collapse {
   max-height: 400px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.top-content-container {
+  margin-bottom: 20px;
 }

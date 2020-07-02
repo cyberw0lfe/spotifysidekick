@@ -7,8 +7,10 @@ export default ({ profile }) => (
     <Card.Body>
       <Card.Title>{profile.name}</Card.Title>
       <Card.Text>
-        <p>{profile.email}</p>
-        <p>{profile.followers} followers</p>
+        {profile.email}
+        <br/>
+        {profile.followers} followers
+        <br/>
       </Card.Text>
       <Card.Link href={profile.url}>Spotify Account</Card.Link>
     </Card.Body>

@@ -36,7 +36,7 @@ export default () => {
                 : <Spinner />
             }
           </Col>
-          <Col sm={12} md={6}>
+          <Col sm={12} md={6} className='top-content-container'>
             <TopGenres />
           </Col>
         </Row>
