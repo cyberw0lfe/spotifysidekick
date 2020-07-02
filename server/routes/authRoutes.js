@@ -27,7 +27,7 @@ router.post('/set-token', invalidateCookie, async (req, res) => {
     const token = data.body['access_token']
     const spotifyId = await getSpotifyId(token)
     const cookie = issueCookie(spotifyId, token)
-    res.cookie('token', cookie, { httpOnly: true }).sendStatus(200)
+    res.cookie('token', cookie, { httpOnly: true, sameSite: 'strict' }).sendStatus(200)
   } catch(err) {
     console.log(`/set_token ERROR: ${err}`)
     if(err.statusCode) res.sendStatus(err.statusCode)
@@ -36,7 +36,7 @@ router.post('/set-token', invalidateCookie, async (req, res) => {
 })
 
 router.get('/logout', logout, async (req, res) => {
-  res.cookie('token', 'logged out', { httpOnly: true }).sendStatus(200)
+  res.cookie('token', 'logged out', { httpOnly: true, sameSite: 'strict' }).sendStatus(200)
 })
 
 module.exports = router

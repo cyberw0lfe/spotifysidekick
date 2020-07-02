@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import SeedGenres from './SeedGenres'
 import SeedArtistForm from './SeedArtistForm'
 import SelectedSeeds from './SelectedSeeds'
@@ -16,22 +17,27 @@ const getType = (key, currentType) => key === 'artist'
     : currentType
 
 export default ({state, setState}) => (
-  <Tabs id='seed-tabs' activeKey={state.activeTab} 
+  <Tabs className='seed-tabs' activeKey={state.activeTab} 
     onSelect={(key) => setState({...state, activeTab: key, playlistType: getType(key, state.playlistType)})}>
     <Tab eventKey='artist' title='Artist'>
       <Card>
         <Row>
+        <Col sm={12} md={6} lg={6}>
           <SeedArtistForm state={state} setState={setState} />
+        </Col>
+        <Col sm={12} md={6} lg={6}>
           <SelectedSeeds state={state} setState={setState} />
+        </Col>
+        
         </Row>
       </Card>
     </Tab>
     <Tab eventKey='genre' title='Genre'>
       <Card>
-        <Row>
+        {/* <Row> */}
           <SeedGenres state={state} setState={setState} />
           <SelectedSeeds state={state} setState={setState} />
-        </Row>
+        {/* </Row> */}
       </Card>
     </Tab>
     <Tab eventKey='playlist' title='Playlist' disabled={ state.playlist.length < 1}>

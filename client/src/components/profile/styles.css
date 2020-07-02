@@ -1,0 +1,18 @@
+.jumbotron {
+  padding: 2rem 2rem;
+}
+
+.user-card {
+  margin-bottom: 20px;
+  max-width: max-content;
+}
+
+.accordion {
+  width: max-content;
+}
+
+.collapse {
+  max-height: 400px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}

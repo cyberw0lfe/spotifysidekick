@@ -50,10 +50,10 @@ const logout = (req, res, next) => {
       } else {
         deleteToken(decoded.uuid)
         console.log(`Logged out user: ${decoded.uuid}`)
-        next()
       }
     })
   }
+  next()
 }
 
 module.exports = { withAuth, logout }

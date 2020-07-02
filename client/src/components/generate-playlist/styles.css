@@ -15,6 +15,10 @@
   max-width: max-content;
 }
 
+.info-container { 
+  max-width: 100%;
+}
+
 .list-group {
   max-height: 400px;
   max-width: 350px;
@@ -37,6 +41,10 @@
 .tab-card {
   margin: 10px;
   height: max-content;
+}
+
+.form-container {
+  margin-bottom: 20px;
 }
 
 .seed-container {

@@ -20,19 +20,19 @@ const popover = (key) => (
 
 const renderOption = (attribute, optionGroup) => (
   <OverlayTrigger key={attribute} placement='auto' overlay={popover(attribute)} >
-  <div>
-    <Row>
-      <Col sm={3} md={3} lg={3}>
-          <div className='advanced-option-label'>
-            <h5>
-              {attribute}
-            </h5>
-          </div>
-      </Col>
-      { optionGroup() }
-    </Row>
-    <hr />
-  </div>
+    <div>
+      <Row>
+        <Col sm={3} md={3} lg={3}>
+            <div className='advanced-option-label'>
+              <h5>
+                {attribute}
+              </h5>
+            </div>
+        </Col>
+        { optionGroup() }
+      </Row>
+      <hr />
+    </div>
   </OverlayTrigger>
 )
 

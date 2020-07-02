@@ -11,7 +11,7 @@ const getTokenFromQueryString = () => {
 }
 
 const setToken = async () => {
-  cookie.set('authorized', true)
+  cookie.set('authorized', true, {sameSite: 'strict'})
   const token = getTokenFromQueryString()
   await setAccessToken(token)
   window.location.replace('/profile')
