@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@timberio/node": "^0.33.0",
-    "bcrypt": "^3.0.5",
+    "bcrypt": "^5.0.0",
     "casual": "^1.6.0",
     "connect-api-mocker": "^1.4.0",
     "cookie-parser": "^1.4.4",
