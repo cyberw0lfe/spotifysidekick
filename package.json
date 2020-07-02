@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@timberio/node": "^0.33.0",
-    "bcrypt": "^3.0.5",
+    "bcrypt": "^5.0.0",
     "casual": "^1.6.0",
     "connect-api-mocker": "^1.4.0",
     "cookie-parser": "^1.4.4",
@@ -25,7 +25,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash.get": "^4.4.2",
     "node-fetch": "^2.4.0",
-    "nodemon": "^1.18.10",
+    "nodemon": "^2.0.3",
     "path": "^0.12.7",
     "querystring": "^0.2.0",
     "redis": "^2.8.0",
