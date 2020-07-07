@@ -11,14 +11,9 @@ const logoutUser = async () => {
   window.location.href = '/'
 }
 
-const authHeader = (window.location.pathname === '/') 
-  ? <div/> 
-  : <Nav.Link className='logout' onClick={logoutUser}>Logout</Nav.Link>
-
-export default () => (
-  <Navbar collapseOnSelect expand='sm' fixed='top' bg='dark' variant='dark'>
-    <Navbar.Brand href='/profile'>Spotify Sidekick</Navbar.Brand>
-    <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+const authenticatedLinks = (window.location.pathname === '/')
+  ? <div/>
+  : (
     <Navbar.Collapse id='responsive-navbar-nav'>
       <Nav className='mr-auto'>
         <Nav.Link href='/profile'>Profile</Nav.Link>
@@ -26,8 +21,15 @@ export default () => (
         <Nav.Link href='/generate'>Generate</Nav.Link>
       </Nav>
       <Nav>
-        {authHeader}
+        <Nav.Link className='logout' onClick={logoutUser}>Logout</Nav.Link>
       </Nav>
     </Navbar.Collapse>
+  )
+
+export default () => (
+  <Navbar collapseOnSelect expand='sm' fixed='top' bg='dark' variant='dark'>
+    <Navbar.Brand href='/profile'>Spotify Sidekick</Navbar.Brand>
+    <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+    {authenticatedLinks}
   </Navbar>
 )
